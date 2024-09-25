@@ -1,0 +1,59 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <progress id="loadingBar" style="display: none"></progress>
+        <form action="#" id="searchForm">
+            <h1>search</h1>
+
+            <label for="roverSelect">Rover:</label>
+            <select name="roverSelect" id="roverSelect">
+                <option value="" disabled selected="selected">Please select...</option>
+                <option value="opportunity">Opportunity</option>
+                <option value="spirit">Spirit</option>
+                <option value="curiosity">Curiosity</option>
+                <option value="perseverance">Perseverance</option>
+            </select>
+            <br>
+            <label for="camSelect">Camera(s):</label>
+            <select name="camSelect" id="camSelect">
+                <option value="FHAZ" id="camSelectFHAZ">Front Hazard Avoidance Camera</option>
+                <option value="RHAZ" id="camSelectRHAZ">Rear Hazard Avoidance Camera</option>
+                <option value="MAST" id="camSelectMAST">Mast Camera</option>
+                <option value="CHEMCAM" id="camSelectCHEMCAM">Chemistry and Camera Complex</option>
+                <option value="MAHLI" id="camSelectMAHLI">Mars Hand Lens Imager</option>
+                <option value="MARDI" id="camSelectMARDI">Mars Descent Imager</option>
+                <option value="NAVCAM" id="camSelectNAVCAM">Navigation Camera</option>
+                <option value="PANCAM" id="camSelectPANCAM">Panoramic Camera</option>
+                <option value="MINITES" id="camSelectMINITES">Miniature Thermal Emission Spectrometer (Mini-TES)</option>
+                <option value="EDL_RUCAM" id="camSelectEDL_RUCAM">Rover Up-Look Camera</option>
+                <option value="EDL_RDCAM" id="camSelectEDL_RDCAM">Rover Down-Look Camera</option>
+                <option value="EDL_DDCAM" id="camSelectEDL_DDCAM">Descent Stage Down-Look Camera</option>
+                <option value="EDL_PUCAM1" id="camSelectEDL_PUCAM1">Parachute Up-Look Camera A</option>
+                <option value="EDL_PUCAM2" id="camSelectEDL_PUCAM2">Parachute Up-Look Camera B</option>
+                <option value="NAVCAM_LEFT" id="camSelectNAVCAM_LEFT">Navigation Camera - Left</option>
+                <option value="NAVCAM_RIGHT" id="camSelectNAVCAM_RIGHT">Navigation Camera - Right</option>
+                <option value="MCZ_RIGHT" id="camSelectMCZ_RIGHT">Mast Camera Zoom - Right</option>
+                <option value="MCZ_LEFT" id="camSelectMCZ_LEFT">Mast Camera Zoom - Left</option>
+                <option value="FRONT_HAZCAM_LEFT_A" id="camSelectFRONT_HAZCAM_LEFT_A">Front Hazard Avoidance Camera - Left</option>
+                <option value="FRONT_HAZCAM_RIGHT_A" id="camSelectFRONT_HAZCAM_RIGHT_A">Front Hazard Avoidance Camera - Right</option>
+                <option value="REAR_HAZCAM_LEFT" id="camSelectREAR_HAZCAM_LEFT">Rear Hazard Avoidance Camera - Left</option>
+                <option value="REAR_HAZCAM_RIGHT" id="camSelectREAR_HAZCAM_RIGHT">Rear Hazard Avoidance Camera - Right</option>
+                <option value="SKYCAM" id="camSelectSKYCAM">MEDA Skycam</option>
+                <option value="SHERLOC_WATSON" id="camSelectSHERLOC_WATSON">SHERLOC WATSON Camera</option>
+            </select>
+            <br>
+            <label for="searchDate">Search Date:</label>
+            <input type="date" id="searchDate" name="searchDate" value="2024-09-24" min="" max="">
+            <br>
+            <button type="submit">Search</button>
+        </form>
+        <ul id="photos">
+
+        </ul>
+
+        <script src="/js/api.js"></script>
+        <script src="/js/search.js"></script>
+    </body>
+</html>
