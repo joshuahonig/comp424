@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/rover.css">
+    <title>Rover</title>
+</head>
+
+<body>
+    <div class="intro">
+        <h1>Nasa API Project</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="search.html">Search</a>
+        </nav>
+    </div>
+
+    <div id="content">
+        <figure class="container">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/NASA_Mars_Rover.jpg/1920px-NASA_Mars_Rover.jpg"
+                alt="opportunity rover">
+            <figcaption>Opportunity</figcaption>
+        </figure>
+        <figure class="container">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/KSC-03PD-0786.jpg/2560px-KSC-03PD-0786.jpg"
+                alt="spirit rover">
+            <figcaption>Spirit</figcaption>
+        </figure>
+        <figure class="container">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/NASA_Mars_Rover.jpg/1920px-NASA_Mars_Rover.jpg"
+                alt="curiosity rover">
+            <figcaption>Curiosity</figcaption>
+        </figure>
+        <figure class="container">
+            <img src="https://imagecache.jpl.nasa.gov/images/edu/system/resources/detail_files/24804_1-PIA23764-RoverNamePlateonMars-web-640x350.jpg"
+                alt="perseverance rover">
+            <figcaption>Perseverance</figcaption>
+        </figure>
+    </div>
+
+
+    <footer>
+        <p>© <span id="year"></span> All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Set the current year in the footer
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+
+</body>
+
+</html>
