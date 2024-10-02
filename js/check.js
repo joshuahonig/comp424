@@ -23,12 +23,10 @@ fetch("https://api.nasa.gov/planetary/apod?api_key=" + apikey)
     if (response.hasOwnProperty("error")){
         // If API response has "error" key.
         warnInvalid('API response: \n"' + response['error']['message'] + '"');
-    } else if (response.hasOwnProperty("copyright") && response.hasOwnProperty("url")) {
+    } else if (response.hasOwnProperty("url")) {
         // If API response contains the expected keys...
         // Store the keys locally
-        localStorage.setItem("apod.hdurl", response['hdurl']);
-        localStorage.setItem("apod.copyright", response['copyright']);
-        localStorage.setItem("apod.explanation", response['explanation']);
+        localStorage.setItem("apod.url", response['url']);
         localStorage.setItem("apod.title", response['title']);
         // Set the background image
         //document.body.style.backgroundImage = "url('" + response['hdurl'] + "')"; 
