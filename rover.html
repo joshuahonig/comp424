@@ -18,34 +18,106 @@
         </nav>
     </div>
 
-    <div id="content">
+    <main id="content">
         <figure class="container">
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/NASA_Mars_Rover.jpg/1920px-NASA_Mars_Rover.jpg"
-                alt="opportunity rover">
+                alt="opportunity rover" id="opportunity">
             <figcaption>Opportunity</figcaption>
+
+            <form action="#" id="opportunityForm" data-visible="false">
+                <select>
+                    <option>Opportunity</option>
+                </select>
+                <select>
+                    <option value="FHAZ" id="camSelectFHAZ">Front Hazard Avoidance Camera</option>
+                    <option value="RHAZ" id="camSelectRHAZ">Rear Hazard Avoidance Camera</option>
+                    <option value="NAVCAM" id="camSelectNAVCAM">Navigation Camera</option>
+                    <option value="PANCAM" id="camSelectPANCAM">Panoramic Camera</option>
+                    <option value="MINITES" id="camSelectMINITES">Miniature Thermal Emission Spectrometer</option>
+                </select>
+                <label for="searchDate">Search Date:</label>
+                <input type="date" id="searchDate" name="searchDate" value="2024-09-24" min="" max="">
+                <button type="submit">Search</button>
+            </form>
         </figure>
+
         <figure class="container">
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/KSC-03PD-0786.jpg/2560px-KSC-03PD-0786.jpg"
-                alt="spirit rover">
+                alt="spirit rover" id="spirit">
             <figcaption>Spirit</figcaption>
+
+            <form action="#" id="spiritForm" data-visible="false">
+                <select>
+                    <option>Spirit</option>
+                </select>
+                <select>
+                    <option value="FHAZ" id="camSelectFHAZ">Front Hazard Avoidance Camera</option>
+                    <option value="RHAZ" id="camSelectRHAZ">Rear Hazard Avoidance Camera</option>
+                    <option value="NAVCAM" id="camSelectNAVCAM">Navigation Camera</option>
+                    <option value="PANCAM" id="camSelectPANCAM">Panoramic Camera</option>
+                    <option value="MINITES" id="camSelectMINITES">Miniature Thermal Emission Spectrometer</option>
+                </select>
+                <label for="searchDate">Search Date:</label>
+                <input type="date" id="searchDate" name="searchDate" value="2024-09-24" min="" max="">
+                <button type="submit">Search</button>
+            </form>
         </figure>
+
         <figure class="container">
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/NASA_Mars_Rover.jpg/1920px-NASA_Mars_Rover.jpg"
-                alt="curiosity rover">
+                alt="curiosity rover" id="curiosity">
             <figcaption>Curiosity</figcaption>
+
+            <form action="#" id="curiosityForm" data-visible="false">
+                <select>
+                    <option>Curiosity</option>
+                </select>
+                <select>
+                    <option value="FHAZ" id="camSelectFHAZ">Front Hazard Avoidance Camera</option>
+                    <option value="RHAZ" id="camSelectRHAZ">Rear Hazard Avoidance Camera</option>
+                    <option value="MAST" id="camSelectMAST">Mast Camera</option>
+                    <option value="CHEMCAM" id="camSelectCHEMCAM">Chemistry and Camera Complex</option>
+                    <option value="MAHLI" id="camSelectMAHLI">Mars Hand Lens Imager</option>
+                    <option value="MARDI" id="camSelectMARDI">Mars Descent Imager</option>
+                    <option value="NAVCAM" id="camSelectNAVCAM">Navigation Camera</option>
+                </select>
+                <label for="searchDate">Search Date:</label>
+                <input type="date" id="searchDate" name="searchDate" value="2024-09-24" min="" max="">
+                <button type="submit">Search</button>
+            </form>
         </figure>
+
         <figure class="container">
             <img src="https://imagecache.jpl.nasa.gov/images/edu/system/resources/detail_files/24804_1-PIA23764-RoverNamePlateonMars-web-640x350.jpg"
-                alt="perseverance rover">
+                alt="perseverance rover" id="perseverance">
             <figcaption>Perseverance</figcaption>
+
+            <form action="#" id="perseveranceForm" data-visible="false">
+                <select>
+                    <option>Perseverance</option>
+                </select>
+                <select>
+                    <option value="FHAZ" id="camSelectFHAZ">Front Hazard Avoidance Camera</option>
+                    <option value="RHAZ" id="camSelectRHAZ">Rear Hazard Avoidance Camera</option>
+                    <option value="MAST" id="camSelectMAST">Mast Camera</option>
+                    <option value="CHEMCAM" id="camSelectCHEMCAM">Chemistry and Camera Complex</option>
+                    <option value="MAHLI" id="camSelectMAHLI">Mars Hand Lens Imager</option>
+                    <option value="MARDI" id="camSelectMARDI">Mars Descent Imager</option>
+                    <option value="NAVCAM" id="camSelectNAVCAM">Navigation Camera</option>
+                </select>
+                <label for="searchDate">Search Date:</label>
+                <input type="date" id="searchDate" name="searchDate" value="2024-09-24" min="" max="">
+                <button type="submit">Search</button>
+            </form>
         </figure>
-    </div>
+    </main>
 
 
     <footer>
         <p>© <span id="year"></span> All rights reserved.</p>
     </footer>
 
+    <script src="js/rover.js"></script>
     <script>
         // Set the current year in the footer
         document.getElementById("year").textContent = new Date().getFullYear();
