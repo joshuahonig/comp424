@@ -14,7 +14,7 @@
         <nav>
             <a href="rover.html">Home</a>
             <a href="about.html">About</a>
-            <a href="search.html">Search</a>
+            <a id="link" href="search.html">Search</a>
         </nav>
     </div>
 
@@ -124,6 +124,13 @@
     <script>
         // Set the current year in the footer
         document.getElementById("year").textContent = new Date().getFullYear();
+
+        let link = document.getElementById("link");
+        // Add a click event listener to the link
+        link.addEventListener("click", function () {
+            // Clear local storage
+            localStorage.clear();
+        });
     </script>
 
 </body>
