@@ -24,11 +24,11 @@
                 alt="opportunity rover" id="opportunity">
             <figcaption>Opportunity</figcaption>
 
-            <form action="#" id="opportunityForm" data-visible="false">
-                <select>
-                    <option>Opportunity</option>
+            <form action="search.html" method="GET" id="opportunityForm" data-visible="false">
+                <select name="roverSelect1">
+                    <option value="opportunity">Opportunity</option>
                 </select>
-                <select>
+                <select name="camSelect1">
                     <option value="FHAZ" id="camSelectFHAZ">Front Hazard Avoidance Camera</option>
                     <option value="RHAZ" id="camSelectRHAZ">Rear Hazard Avoidance Camera</option>
                     <option value="NAVCAM" id="camSelectNAVCAM">Navigation Camera</option>
@@ -36,7 +36,7 @@
                     <option value="MINITES" id="camSelectMINITES">Miniature Thermal Emission Spectrometer</option>
                 </select>
                 <label for="searchDate">Search Date:</label>
-                <input type="date" id="searchDate" name="searchDate" value="2024-09-24" min="" max="">
+                <input type="date" id="searchDate1" name="searchDate1" value="" min="2020-01-01" max="2024-10-03">
                 <button type="submit">Search</button>
             </form>
         </figure>
@@ -46,11 +46,11 @@
                 alt="spirit rover" id="spirit">
             <figcaption>Spirit</figcaption>
 
-            <form action="#" id="spiritForm" data-visible="false">
-                <select>
-                    <option>Spirit</option>
+            <form action="search.html" method="GET" id="spiritForm" data-visible="false">
+                <select name="roverSelect2">
+                    <option value="spirit">Spirit</option>
                 </select>
-                <select>
+                <select name="camSelect2">
                     <option value="FHAZ" id="camSelectFHAZ">Front Hazard Avoidance Camera</option>
                     <option value="RHAZ" id="camSelectRHAZ">Rear Hazard Avoidance Camera</option>
                     <option value="NAVCAM" id="camSelectNAVCAM">Navigation Camera</option>
@@ -58,7 +58,7 @@
                     <option value="MINITES" id="camSelectMINITES">Miniature Thermal Emission Spectrometer</option>
                 </select>
                 <label for="searchDate">Search Date:</label>
-                <input type="date" id="searchDate" name="searchDate" value="2024-09-24" min="" max="">
+                <input type="date" id="searchDate2" name="searchDate2" value="2024-09-24" min="" max="">
                 <button type="submit">Search</button>
             </form>
         </figure>
@@ -68,11 +68,11 @@
                 alt="curiosity rover" id="curiosity">
             <figcaption>Curiosity</figcaption>
 
-            <form action="#" id="curiosityForm" data-visible="false">
-                <select>
-                    <option>Curiosity</option>
+            <form action="search.html" method="GET" id="curiosityForm" data-visible="false">
+                <select name="roverSelect3">
+                    <option value="curiosity">Curiosity</option>
                 </select>
-                <select>
+                <select name="camSelect3">
                     <option value="FHAZ" id="camSelectFHAZ">Front Hazard Avoidance Camera</option>
                     <option value="RHAZ" id="camSelectRHAZ">Rear Hazard Avoidance Camera</option>
                     <option value="MAST" id="camSelectMAST">Mast Camera</option>
@@ -82,7 +82,7 @@
                     <option value="NAVCAM" id="camSelectNAVCAM">Navigation Camera</option>
                 </select>
                 <label for="searchDate">Search Date:</label>
-                <input type="date" id="searchDate" name="searchDate" value="2024-09-24" min="" max="">
+                <input type="date" id="searchDate3" name="searchDate3" value="2024-09-24" min="" max="">
                 <button type="submit">Search</button>
             </form>
         </figure>
@@ -92,11 +92,11 @@
                 alt="perseverance rover" id="perseverance">
             <figcaption>Perseverance</figcaption>
 
-            <form action="#" id="perseveranceForm" data-visible="false">
-                <select>
-                    <option>Perseverance</option>
+            <form action="search.html" method="GET" id="perseveranceForm" data-visible="false">
+                <select name="roverSelect4">
+                    <option value="perseverance">Perseverance</option>
                 </select>
-                <select>
+                <select name="camSelect4">
                     <option value="FHAZ" id="camSelectFHAZ">Front Hazard Avoidance Camera</option>
                     <option value="RHAZ" id="camSelectRHAZ">Rear Hazard Avoidance Camera</option>
                     <option value="MAST" id="camSelectMAST">Mast Camera</option>
@@ -106,7 +106,7 @@
                     <option value="NAVCAM" id="camSelectNAVCAM">Navigation Camera</option>
                 </select>
                 <label for="searchDate">Search Date:</label>
-                <input type="date" id="searchDate" name="searchDate" value="2024-09-24" min="" max="">
+                <input type="date" id="searchDate4" name="searchDate4" value="2024-09-24" min="" max="">
                 <button type="submit">Search</button>
             </form>
         </figure>
@@ -117,7 +117,10 @@
         <p>© <span id="year"></span> All rights reserved.</p>
     </footer>
 
-    <script src="js/rover.js"></script>
+    <script src="js/oppRover.js"></script>
+    <script src="js/spiritRover.js"></script>
+    <script src="js/curiosityRover.js"></script>
+    <script src="js/perseveranceRover.js"></script>
     <script>
         // Set the current year in the footer
         document.getElementById("year").textContent = new Date().getFullYear();
