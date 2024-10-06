@@ -128,8 +128,10 @@
         let link = document.getElementById("link");
         // Add a click event listener to the link
         link.addEventListener("click", function () {
-            // Clear local storage
-            localStorage.clear();
+            // Clear multiple fields
+            localStorage.removeItem("rover");
+            localStorage.removeItem("camera");
+            localStorage.removeItem("date");
         });
     </script>
 
