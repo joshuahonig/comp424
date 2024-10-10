@@ -1,13 +1,46 @@
-<html>
-    <head>
+<!DOCTYPE html>
+<html lang="en">
 
-    </head>
-    <body>
-        <form action="#" id="apiForm">
-            <h1>Please enter your API key.</h1>
-            <input id="apiKeyTextbox" type="text" required placeholder="Your API key...">
-            <button type="submit">Submit</button>
-        </form>
-        <script src="/js/index.js"></script>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Default Page</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+    <div class="intro">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/NASA_logo.svg/220px-NASA_logo.svg.png"
+            alt="nasa logo" id="logo">
+        <h1>NASA API Project</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="search.html">Search</a>
+        </nav>
+    </div>
+
+    <h2>Please enter your API key.</h2>
+
+    <main id="content">
+        <div class="container">
+            <form action="#" id="apiForm">
+                <input id="apiKeyTextbox" type="text" required placeholder="Your API key...">
+                <button type="submit">Submit</button>
+            </form>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>© <span id="year"></span> All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Set the current year in the footer
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+    <script src="/js/index.js"></script>
+</body>
+
 </html>
