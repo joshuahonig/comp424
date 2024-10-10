@@ -99,14 +99,15 @@ searchForm.addEventListener("submit", (e) => {
         var query = document.createElement("p");
         query.innerHTML = "No search results"
         ul.appendChild(query)
-      }
+      } else {
 
-      for (var x = 0; x < response['photos'].length; x++) {
-        var li = document.createElement("li");
-        var img = document.createElement("img");
-        img.src = response['photos'][x]['img_src'];
-        li.appendChild(img);
-        ul.appendChild(li);
+        for (var x = 0; x < response['photos'].length; x++) {
+          var li = document.createElement("li");
+          var img = document.createElement("img");
+          img.src = response['photos'][x]['img_src'];
+          li.appendChild(img);
+          ul.appendChild(li);
+        }
       }
 
       document.getElementById("loadingBar").style.display = "none";
