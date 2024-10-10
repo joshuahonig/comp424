@@ -21,20 +21,14 @@ const availableCams = {
   ],
 };
 
+// Code to execute when the entire page is fully loaded
 window.addEventListener('load', function () {
-  // Code to execute when the entire page is fully loaded
   console.log("Page fully loaded");
-  if (localStorage.getItem("rover")) {
+  if (localStorage.getItem("rover") && localStorage.getItem("camera") && localStorage.getItem("date")) {
     document.getElementById("roverSelect").value = localStorage.getItem("rover");
-    console.log(localStorage.getItem("rover"));
-  }
-  if (localStorage.getItem("camera")) {
     document.getElementById("camSelect").value = localStorage.getItem("camera");
-    console.log(localStorage.getItem("camera"));
-  }
-  if (localStorage.getItem("date")) {
     document.getElementById("searchDate").value = localStorage.getItem("date");
-    console.log(localStorage.getItem("date"));
+    document.getElementById("submit").click();
   }
 });
 
@@ -65,17 +59,17 @@ roverSelect.addEventListener("change", function () {
     .then((function (response) {
       return response.json();
     }))
-    .then(function (response) {    
+    .then(function (response) {
       console.log(response);
-      for (var x=0; x<response['rovers'].length; x++){
-        if (response['rovers'][x]['name'].toUpperCase() == selectedRover.toUpperCase()){
+      for (var x = 0; x < response['rovers'].length; x++) {
+        if (response['rovers'][x]['name'].toUpperCase() == selectedRover.toUpperCase()) {
           console.log(response['rovers'][x]);
           var oldest = response['rovers'][x]['landing_date'];
           var newest = response['rovers'][x]['max_date'];
           document.getElementById("searchDate").min = oldest;
           document.getElementById("searchDate").max = newest;
           document.getElementById("dateCaption").innerHTML = `Range of available dates: ${oldest} to ${newest}`
-        } 
+        }
       }
       document.getElementById("loadingBar").style.display = "none";
     })
