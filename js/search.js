@@ -94,6 +94,13 @@ searchForm.addEventListener("submit", (e) => {
     .then(function (response) {
       console.log(response['photos']);
       var ul = document.getElementById("photos");
+
+      if (response['photos'].length == 0) {
+        var query = document.createElement("p");
+        query.innerHTML = "No search results"
+        ul.appendChild(query)
+      }
+
       for (var x = 0; x < response['photos'].length; x++) {
         var li = document.createElement("li");
         var img = document.createElement("img");
