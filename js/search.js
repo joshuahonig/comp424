@@ -58,15 +58,25 @@ roverSelect.addEventListener("change", function () {
   }
 
   /* Get the oldest and newest photo date */
-  fetch(`https://api.nasa.gov/mars-photos/api/v1/manifests/${selectedRover}?api_key=${apikey}`)
+  /* This function is supposed to use the /manifests/ROVERNAME endpoint, but this endpoint
+  recently started to return HTTP 500 Internal Server Error. Using the /rovers endpoint 
+  is not ideal, but retrieves the intended information. */
+  fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers?api_key=${apikey}`)
     .then((function (response) {
       return response.json();
     }))
-    .then(function (response) {
-      var oldest = response['photo_manifest']['photos'][0]["earth_date"];
-      var newest = response['photo_manifest']['photos'][response['photo_manifest']['photos'].length - 1]["earth_date"];
-      document.getElementById("searchDate").min = oldest;
-      document.getElementById("searchDate").max = newest;
+    .then(function (response) {    
+      console.log(response);
+      for (var x=0; x<response['rovers'].length; x++){
+        if (response['rovers'][x]['name'].toUpperCase() == selectedRover.toUpperCase()){
+          console.log(response['rovers'][x]);
+          // TODO load oldest and newest dates!
+          var oldest = response['rovers'][x]['landing_date'];
+          var newest = response['rovers'][x]['max_date'];
+          document.getElementById("searchDate").min = oldest;
+          document.getElementById("searchDate").max = newest;
+        } 
+      }
       document.getElementById("loadingBar").style.display = "none";
     })
     .catch(function (err) {
