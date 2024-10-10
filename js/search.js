@@ -70,11 +70,11 @@ roverSelect.addEventListener("change", function () {
       for (var x=0; x<response['rovers'].length; x++){
         if (response['rovers'][x]['name'].toUpperCase() == selectedRover.toUpperCase()){
           console.log(response['rovers'][x]);
-          // TODO load oldest and newest dates!
           var oldest = response['rovers'][x]['landing_date'];
           var newest = response['rovers'][x]['max_date'];
           document.getElementById("searchDate").min = oldest;
           document.getElementById("searchDate").max = newest;
+          document.getElementById("dateCaption").innerHTML = `Range of available dates: ${oldest} to ${newest}`
         } 
       }
       document.getElementById("loadingBar").style.display = "none";
