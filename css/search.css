@@ -123,3 +123,7 @@ button:hover {
     font-size: 0.75em; 
     text-align: left;
 }
+
+.warning {
+    padding-top: 1em;
+}

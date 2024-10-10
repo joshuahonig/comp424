@@ -90,6 +90,7 @@ searchForm.addEventListener("submit", (e) => {
   e.preventDefault(); // prevent the form from submitting
   document.getElementById("loadingBar").style.display = "block";
   document.getElementById("photos").innerHTML = ""; // remove all existing photos
+  document.getElementById("noresults").style.display = "none"; // hide the "no results" warning
   var rover = document.getElementById("searchForm").elements['roverSelect'].value;
   var cam = document.getElementById("searchForm").elements['camSelect'].value;
   var date = document.getElementById("searchForm").elements['searchDate'].value;
@@ -106,6 +107,9 @@ searchForm.addEventListener("submit", (e) => {
         img.src = response['photos'][x]['img_src'];
         li.appendChild(img);
         ul.appendChild(li);
+      }
+      if (response['photos'].length == 0){
+        document.getElementById("noresults").style.display = "block";
       }
 
       document.getElementById("loadingBar").style.display = "none";
