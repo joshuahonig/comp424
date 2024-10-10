@@ -4,12 +4,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Default Page</title>
+    <link rel="stylesheet" href="css/default.css">
 </head>
 
 <body>
+    <div class="intro">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/NASA_logo.svg/220px-NASA_logo.svg.png"
+            alt="nasa logo" id="logo">
+        <h1>Nasa API Project</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="search.html">Search</a>
+        </nav>
+    </div>
 
-    <h1>about page</h1>
+    <h2>About</h2>
+
+    <main id="content">
+        <div class="container">
+            <section>The purpose of this project is to give users an easily accessible way to view images using NASA
+                APIs. We hope you enjoy!</section>
+        </div>
+    </main>
+
+    <footer>
+        <p>© <span id="year"></span> All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Set the current year in the footer
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
 </body>
 
 </html>
