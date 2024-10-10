@@ -70,7 +70,6 @@ h2 {
 }
 
 .container {
-    max-width: 250px;
     text-align: center;
 }
 
@@ -118,4 +117,9 @@ button {
 
 button:hover {
     background-color: #023E7D;
+}
+
+.sublabel {
+    font-size: 0.75em; 
+    text-align: left;
 }
