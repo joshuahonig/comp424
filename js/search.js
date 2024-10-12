@@ -46,6 +46,21 @@ function dateButtonClick(option) {
   }
 }
 
+// Enable or disable interaction with the input elements. 
+// Also toggles the progress bar.
+function toggleInputs(state){
+  var searchInputs = document.getElementsByClassName("searchInput"); 
+  if (state == true){ 
+    // enable elements
+    document.getElementById("loadingBar").style.display = "none";
+    for (var x = 0; x < searchInputs.length; x++) searchInputs[x].disabled = false;
+  } else {
+    // disable elements
+    document.getElementById("loadingBar").style.display = "block";
+    for (var x = 0; x < searchInputs.length; x++) searchInputs[x].disabled = true;
+  }
+}
+
 // Code to execute when the entire page is fully loaded
 window.addEventListener('load', function () {
   console.log("Page fully loaded");
@@ -59,9 +74,8 @@ window.addEventListener('load', function () {
 
 /* Handle events that occur when the selected rover is changed. */
 var roverSelect = document.getElementById("roverSelect");
-
 roverSelect.addEventListener("change", function () {
-  document.getElementById("loadingBar").style.display = "block";
+  toggleInputs(false);
   var selectedRover = roverSelect.options[roverSelect.selectedIndex].value;
 
   /* Update the available camera options */
@@ -98,7 +112,7 @@ roverSelect.addEventListener("change", function () {
           document.getElementById("dateRangeNewest").innerHTML = newest;
         }
       }
-      document.getElementById("loadingBar").style.display = "none";
+      toggleInputs(true);
     })
     .catch(function (err) {
       warnInvalid("Error connecting to the NASA API: " + err);
@@ -109,14 +123,12 @@ roverSelect.addEventListener("change", function () {
 let searchForm = document.getElementById("searchForm");
 searchForm.addEventListener("submit", (e) => {
   e.preventDefault(); // prevent the form from submitting
-  document.getElementById("loadingBar").style.display = "block";
   document.getElementById("photoGallery").innerHTML = ""; // remove all existing photos
   document.getElementById("noresults").style.display = "none"; // hide the "no results" warning
   var rover = document.getElementById("searchForm").elements['roverSelect'].value;
   var cam = document.getElementById("searchForm").elements['camSelect'].value;
   var date = document.getElementById("searchForm").elements['searchDate'].value;
-  var searchInputs = document.getElementsByClassName("searchInput"); // get list of search inputs
-  for (var x = 0; x < searchInputs.length; x++) searchInputs[x].disabled = true; // disable all search inputs while loading
+  toggleInputs(false);
   fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?api_key=${apikey}&earth_date=${date}&camera=${cam}`)
     .then((function (response) {
       return response.json();
@@ -149,8 +161,7 @@ searchForm.addEventListener("submit", (e) => {
         })
       })
 
-      document.getElementById("loadingBar").style.display = "none";
-      for (var x = 0; x < searchInputs.length; x++) searchInputs[x].disabled = false; // enable all search inputs
+      toggleInputs(true);
     })
     .catch(function (err) {
       if (rover != "unselected") {
