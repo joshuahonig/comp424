@@ -115,6 +115,11 @@ searchForm.addEventListener("submit", (e) => {
       for (var x = 0; x < searchInputs.length; x++) searchInputs[x].disabled = false; // enable all search inputs
     })
     .catch(function (err) {
-      warnInvalid("Error connecting to the NASA API: " + err);
+      if (rover != "unselected") {
+        warnInvalid("Error connecting to the NASA API: " + err);
+      } else {
+         alert("Please select a rover.");
+         window.location.reload();
+      }
     });
 });
