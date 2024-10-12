@@ -96,10 +96,8 @@ searchForm.addEventListener("submit", (e) => {
       console.log(response['photos']);
       var ul = document.getElementById("photos");
 
-      if (response['photos'].length == 0) {
-        var query = document.createElement("p");
-        query.innerHTML = "No search results"
-        ul.appendChild(query)
+      if (response['photos'].length == 0){
+        document.getElementById("noresults").style.display = "block";
       } else {
 
         for (var x = 0; x < response['photos'].length; x++) {
@@ -109,9 +107,6 @@ searchForm.addEventListener("submit", (e) => {
           li.appendChild(img);
           ul.appendChild(li);
         }
-      }
-      if (response['photos'].length == 0){
-        document.getElementById("noresults").style.display = "block";
       }
 
       document.getElementById("loadingBar").style.display = "none";
