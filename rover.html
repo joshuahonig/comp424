@@ -26,20 +26,23 @@
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/NASA_Mars_Rover.jpg/1920px-NASA_Mars_Rover.jpg"
                 alt="opportunity rover" id="opportunity">
             <figcaption>Opportunity</figcaption>
+            <progress id="loadingBar1" style="display: none"></progress>
 
             <form action="search.html" method="GET" id="opportunityForm" data-visible="false">
-                <select name="roverSelect1">
+                <select name="roverSelect1" id="roverSelect1">
                     <option value="opportunity">Opportunity</option>
                 </select>
-                <select name="camSelect1">
+                <select name="camSelect1" id="camSelect1">
                     <option value="FHAZ" id="camSelectFHAZ">Front Hazard Avoidance Camera</option>
                     <option value="RHAZ" id="camSelectRHAZ">Rear Hazard Avoidance Camera</option>
                     <option value="NAVCAM" id="camSelectNAVCAM">Navigation Camera</option>
                     <option value="PANCAM" id="camSelectPANCAM">Panoramic Camera</option>
-                    <option value="MINITES" id="camSelectMINITES">Miniature Thermal Emission Spectrometer</option>
+                    <option value="MINITES" id="camSelectMINITES">Miniature Thermal Emission Spectrometer (Mini-TES)
+                    </option>
                 </select>
                 <label for="searchDate">Search Date:</label>
-                <input type="date" id="searchDate1" name="searchDate1" value="" min="2020-01-01" max="2024-10-03">
+                <input type="date" id="searchDate1" name="searchDate1" value="2024-09-24" min="" max="">
+                <p id="dateCaption1" style="font-size: 0.75em; text-align: left;"></p>
                 <button type="submit">Search</button>
             </form>
         </figure>
@@ -48,20 +51,23 @@
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/KSC-03PD-0786.jpg/2560px-KSC-03PD-0786.jpg"
                 alt="spirit rover" id="spirit">
             <figcaption>Spirit</figcaption>
+            <progress id="loadingBar2" style="display: none"></progress>
 
             <form action="search.html" method="GET" id="spiritForm" data-visible="false">
-                <select name="roverSelect2">
+                <select name="roverSelect2" id="roverSelect2">
                     <option value="spirit">Spirit</option>
                 </select>
-                <select name="camSelect2">
+                <select name="camSelect2" id="camSelect2">
                     <option value="FHAZ" id="camSelectFHAZ">Front Hazard Avoidance Camera</option>
                     <option value="RHAZ" id="camSelectRHAZ">Rear Hazard Avoidance Camera</option>
                     <option value="NAVCAM" id="camSelectNAVCAM">Navigation Camera</option>
                     <option value="PANCAM" id="camSelectPANCAM">Panoramic Camera</option>
-                    <option value="MINITES" id="camSelectMINITES">Miniature Thermal Emission Spectrometer</option>
+                    <option value="MINITES" id="camSelectMINITES">Miniature Thermal Emission Spectrometer (Mini-TES)
+                    </option>
                 </select>
                 <label for="searchDate">Search Date:</label>
                 <input type="date" id="searchDate2" name="searchDate2" value="2024-09-24" min="" max="">
+                <p id="dateCaption2" style="font-size: 0.75em; text-align: left;"></p>
                 <button type="submit">Search</button>
             </form>
         </figure>
@@ -70,12 +76,13 @@
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/NASA_Mars_Rover.jpg/1920px-NASA_Mars_Rover.jpg"
                 alt="curiosity rover" id="curiosity">
             <figcaption>Curiosity</figcaption>
+            <progress id="loadingBar3" style="display: none"></progress>
 
             <form action="search.html" method="GET" id="curiosityForm" data-visible="false">
-                <select name="roverSelect3">
+                <select name="roverSelect3" id="roverSelect3">
                     <option value="curiosity">Curiosity</option>
                 </select>
-                <select name="camSelect3">
+                <select name="camSelect3" id="camSelect3">
                     <option value="FHAZ" id="camSelectFHAZ">Front Hazard Avoidance Camera</option>
                     <option value="RHAZ" id="camSelectRHAZ">Rear Hazard Avoidance Camera</option>
                     <option value="MAST" id="camSelectMAST">Mast Camera</option>
@@ -86,6 +93,7 @@
                 </select>
                 <label for="searchDate">Search Date:</label>
                 <input type="date" id="searchDate3" name="searchDate3" value="2024-09-24" min="" max="">
+                <p id="dateCaption3" style="font-size: 0.75em; text-align: left;"></p>
                 <button type="submit">Search</button>
             </form>
         </figure>
@@ -94,22 +102,39 @@
             <img src="https://imagecache.jpl.nasa.gov/images/edu/system/resources/detail_files/24804_1-PIA23764-RoverNamePlateonMars-web-640x350.jpg"
                 alt="perseverance rover" id="perseverance">
             <figcaption>Perseverance</figcaption>
+            <progress id="loadingBar4" style="display: none"></progress>
 
             <form action="search.html" method="GET" id="perseveranceForm" data-visible="false">
-                <select name="roverSelect4">
+                <select name="roverSelect4" id="roverSelect4">
                     <option value="perseverance">Perseverance</option>
                 </select>
-                <select name="camSelect4">
-                    <option value="FHAZ" id="camSelectFHAZ">Front Hazard Avoidance Camera</option>
-                    <option value="RHAZ" id="camSelectRHAZ">Rear Hazard Avoidance Camera</option>
-                    <option value="MAST" id="camSelectMAST">Mast Camera</option>
-                    <option value="CHEMCAM" id="camSelectCHEMCAM">Chemistry and Camera Complex</option>
-                    <option value="MAHLI" id="camSelectMAHLI">Mars Hand Lens Imager</option>
-                    <option value="MARDI" id="camSelectMARDI">Mars Descent Imager</option>
-                    <option value="NAVCAM" id="camSelectNAVCAM">Navigation Camera</option>
+                <select name="camSelect4" id="camSelect4">
+                    <option value="EDL_RUCAM" id="camSelectEDL_RUCAM">Rover Up-Look Camera</option>
+                    <option value="EDL_RDCAM" id="camSelectEDL_RDCAM">Rover Down-Look Camera</option>
+                    <option value="EDL_DDCAM" id="camSelectEDL_DDCAM">Descent Stage Down-Look Camera</option>
+                    <option value="EDL_PUCAM1" id="camSelectEDL_PUCAM1">Parachute Up-Look Camera A</option>
+                    <option value="EDL_PUCAM2" id="camSelectEDL_PUCAM2">Parachute Up-Look Camera B</option>
+                    <option value="NAVCAM_LEFT" id="camSelectNAVCAM_LEFT">Navigation Camera - Left</option>
+                    <option value="NAVCAM_RIGHT" id="camSelectNAVCAM_RIGHT">Navigation Camera - Right</option>
+                    <option value="MCZ_RIGHT" id="camSelectMCZ_RIGHT">Mast Camera Zoom - Right</option>
+                    <option value="MCZ_LEFT" id="camSelectMCZ_LEFT">Mast Camera Zoom - Left</option>
+                    <option value="FRONT_HAZCAM_LEFT_A" id="camSelectFRONT_HAZCAM_LEFT_A">Front Hazard Avoidance Camera
+                        - Left
+                    </option>
+                    <option value="FRONT_HAZCAM_RIGHT_A" id="camSelectFRONT_HAZCAM_RIGHT_A">Front Hazard Avoidance
+                        Camera -
+                        Right</option>
+                    <option value="REAR_HAZCAM_LEFT" id="camSelectREAR_HAZCAM_LEFT">Rear Hazard Avoidance Camera - Left
+                    </option>
+                    <option value="REAR_HAZCAM_RIGHT" id="camSelectREAR_HAZCAM_RIGHT">Rear Hazard Avoidance Camera -
+                        Right
+                    </option>
+                    <option value="SKYCAM" id="camSelectSKYCAM">MEDA Skycam</option>
+                    <option value="SHERLOC_WATSON" id="camSelectSHERLOC_WATSON">SHERLOC WATSON Camera</option>
                 </select>
                 <label for="searchDate">Search Date:</label>
                 <input type="date" id="searchDate4" name="searchDate4" value="2024-09-24" min="" max="">
+                <p id="dateCaption4" style="font-size: 0.75em; text-align: left;"></p>
                 <button type="submit">Search</button>
             </form>
         </figure>
@@ -120,6 +145,7 @@
         <p>© <span id="year"></span> All rights reserved.</p>
     </footer>
 
+    <script src="/js/api.js"></script>
     <script src="js/oppRover.js"></script>
     <script src="js/spiritRover.js"></script>
     <script src="js/curiosityRover.js"></script>
