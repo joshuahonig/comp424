@@ -123,6 +123,15 @@ button:disabled {
     background-color: #a1caff;
 }
 
+.dateButton {
+    width: 15%;
+    background-color: #000000;
+}
+
+.dateButton:hover {
+    background-color: #555555;
+}
+
 .sublabel {
     font-size: 0.75em; 
     text-align: left;

@@ -21,6 +21,31 @@ const availableCams = {
   ],
 };
 
+// Handle date range clicks on the caption of the date range caption hint. 
+function dateRangeClick(option){
+  if (option == 'oldest') {
+    document.getElementById("searchDate").value = document.getElementById("searchDate").min;
+  } else {
+    document.getElementById("searchDate").value = document.getElementById("searchDate").max;
+  }
+}
+
+// Handle clicks on the forwards and backwards buttons on the date picker.
+function dateButtonClick(option) {
+  // Handle actually changing the date
+  /* date input values are always yyyy-mm-dd; this isn't locale dependent, so this parsing is safe, if a bit silly */
+  var curDateValue = document.getElementById("searchDate").value.split("-");
+  var curDate = new Date(curDateValue[0], curDateValue[1]-1, curDateValue[2]);
+  var distance = (option == "l") ? -1 : 1;
+  curDate.setDate(curDate.getDate() + distance);
+  document.getElementById("searchDate").value = curDate.toISOString().split('T')[0].slice(0, 10); // https://stackoverflow.com/a/64706637
+
+  // Check whether it's okay to load new images, and if so, do it
+  if (document.getElementById("roverSelect").value != "unselected"){
+    document.getElementById("submit").click();
+  }
+}
+
 // Code to execute when the entire page is fully loaded
 window.addEventListener('load', function () {
   console.log("Page fully loaded");
@@ -68,7 +93,9 @@ roverSelect.addEventListener("change", function () {
           var newest = response['rovers'][x]['max_date'];
           document.getElementById("searchDate").min = oldest;
           document.getElementById("searchDate").max = newest;
-          document.getElementById("dateCaption").innerHTML = `Range of available dates: ${oldest} to ${newest}`
+          document.getElementById("dateCaption").style.display = "block";
+          document.getElementById("dateRangeOldest").innerHTML = oldest;
+          document.getElementById("dateRangeNewest").innerHTML = newest;
         }
       }
       document.getElementById("loadingBar").style.display = "none";
