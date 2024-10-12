@@ -60,7 +60,7 @@ h2 {
 }
 
 /* Main Content Styling */
-#content {
+.content {
     flex: 1;
     display: flex;
     flex-wrap: wrap;
