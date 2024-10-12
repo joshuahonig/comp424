@@ -88,6 +88,8 @@ searchForm.addEventListener("submit", (e) => {
   var rover = document.getElementById("searchForm").elements['roverSelect'].value;
   var cam = document.getElementById("searchForm").elements['camSelect'].value;
   var date = document.getElementById("searchForm").elements['searchDate'].value;
+  var searchInputs = document.getElementsByClassName("searchInput"); // get list of search inputs
+  for (var x = 0; x < searchInputs.length; x++) searchInputs[x].disabled = true; // disable all search inputs while loading
   fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?api_key=${apikey}&earth_date=${date}&camera=${cam}`)
     .then((function (response) {
       return response.json();
@@ -110,6 +112,7 @@ searchForm.addEventListener("submit", (e) => {
       }
 
       document.getElementById("loadingBar").style.display = "none";
+      for (var x = 0; x < searchInputs.length; x++) searchInputs[x].disabled = false; // enable all search inputs
     })
     .catch(function (err) {
       warnInvalid("Error connecting to the NASA API: " + err);

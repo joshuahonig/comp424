@@ -119,11 +119,15 @@ button:hover {
     background-color: #023E7D;
 }
 
+button:disabled {
+    background-color: #a1caff;
+}
+
 .sublabel {
     font-size: 0.75em; 
     text-align: left;
 }
 
 .warning {
-    padding-top: 1em;
+    padding-top: 0.25em;
 }

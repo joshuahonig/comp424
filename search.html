@@ -28,7 +28,7 @@
             <form action="#" id="searchForm">
 
                 <label for="roverSelect">Rover:</label>
-                <select name="roverSelect" id="roverSelect">
+                <select name="roverSelect" id="roverSelect" class="searchInput">
                     <option value="" disabled selected="selected">Please select...</option>
                     <option value="opportunity">Opportunity</option>
                     <option value="spirit">Spirit</option>
@@ -37,7 +37,7 @@
                 </select>
                 <br>
                 <label for="camSelect">Camera(s):</label>
-                <select name="camSelect" id="camSelect">
+                <select name="camSelect" id="camSelect" class="searchInput">
                     <option value="FHAZ" id="camSelectFHAZ">Front Hazard Avoidance Camera</option>
                     <option value="RHAZ" id="camSelectRHAZ">Rear Hazard Avoidance Camera</option>
                     <option value="MAST" id="camSelectMAST">Mast Camera</option>
@@ -73,10 +73,10 @@
                 </select>
                 <br>
                 <label for="searchDate">Search Date:</label>
-                <input type="date" id="searchDate" name="searchDate" value="2024-09-24" min="" max="">
+                <input type="date" id="searchDate" name="searchDate" value="2024-09-24" min="" max="" class="searchInput">
                 <p id="dateCaption" class="sublabel"></p>
                 <br>
-                <button type="submit" id="submit">Search</button>
+                <button type="submit" id="submit" class="searchInput">Search</button>
             </form>
         </div>
     </main>
