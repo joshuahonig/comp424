@@ -138,6 +138,17 @@ searchForm.addEventListener("submit", (e) => {
         }
       }
 
+      // https://stackoverflow.com/a/67816263
+      var galleryImages = document.querySelectorAll(".gallery a");
+      var fullPageViewer = document.querySelector("#fullscreenImageViewer");
+      galleryImages.forEach(link => {
+        link.addEventListener('click', function() {
+          fullPageViewer.style.backgroundImage = `url(${link.children[0].src})`;
+          fullPageViewer.style.display = "block";
+          window.scrollTo(0, 0);
+        })
+      })
+
       document.getElementById("loadingBar").style.display = "none";
       for (var x = 0; x < searchInputs.length; x++) searchInputs[x].disabled = false; // enable all search inputs
     })
