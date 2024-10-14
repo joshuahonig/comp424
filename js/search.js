@@ -22,7 +22,7 @@ const availableCams = {
 };
 
 // Handle date range clicks on the caption of the date range caption hint. 
-function dateRangeClick(option){
+function dateRangeClick(option) {
   if (option == 'oldest') {
     document.getElementById("searchDate").value = document.getElementById("searchDate").min;
   } else {
@@ -35,22 +35,22 @@ function dateButtonClick(option) {
   // Handle actually changing the date
   /* date input values are always yyyy-mm-dd; this isn't locale dependent, so this parsing is safe, if a bit silly */
   var curDateValue = document.getElementById("searchDate").value.split("-");
-  var curDate = new Date(curDateValue[0], curDateValue[1]-1, curDateValue[2]);
+  var curDate = new Date(curDateValue[0], curDateValue[1] - 1, curDateValue[2]);
   var distance = (option == "l") ? -1 : 1;
   curDate.setDate(curDate.getDate() + distance);
   document.getElementById("searchDate").value = curDate.toISOString().split('T')[0].slice(0, 10); // https://stackoverflow.com/a/64706637
 
   // Check whether it's okay to load new images, and if so, do it
-  if (document.getElementById("roverSelect").value != "unselected"){
+  if (document.getElementById("roverSelect").value != "unselected") {
     document.getElementById("submit").click();
   }
 }
 
 // Enable or disable interaction with the input elements. 
 // Also toggles the progress bar.
-function toggleInputs(state){
-  var searchInputs = document.getElementsByClassName("searchInput"); 
-  if (state == true){ 
+function toggleInputs(state) {
+  var searchInputs = document.getElementsByClassName("searchInput");
+  if (state == true) {
     // enable elements
     document.getElementById("loadingBar").style.display = "none";
     for (var x = 0; x < searchInputs.length; x++) searchInputs[x].disabled = false;
@@ -64,10 +64,9 @@ function toggleInputs(state){
 // Code to execute when the entire page is fully loaded
 window.addEventListener('load', function () {
   console.log("Page fully loaded");
-  if (localStorage.getItem("rover") && localStorage.getItem("camera") && localStorage.getItem("date")) {
+  if (localStorage.getItem("rover") && localStorage.getItem("camera")) {
     document.getElementById("roverSelect").value = localStorage.getItem("rover");
     document.getElementById("camSelect").value = localStorage.getItem("camera");
-    document.getElementById("searchDate").value = localStorage.getItem("date");
     document.getElementById("submit").click();
   }
 });
@@ -137,7 +136,7 @@ searchForm.addEventListener("submit", (e) => {
       console.log(response['photos']);
       var gallery = document.getElementById("photoGallery");
 
-      if (response['photos'].length == 0){
+      if (response['photos'].length == 0) {
         document.getElementById("noresults").style.display = "block";
       } else {
 
@@ -154,7 +153,7 @@ searchForm.addEventListener("submit", (e) => {
       var galleryImages = document.querySelectorAll(".gallery a");
       var fullPageViewer = document.querySelector("#fullscreenImageViewer");
       galleryImages.forEach(link => {
-        link.addEventListener('click', function() {
+        link.addEventListener('click', function () {
           fullPageViewer.style.backgroundImage = `url(${link.children[0].src})`;
           fullPageViewer.style.display = "block";
           window.scrollTo(0, 0);
@@ -167,8 +166,8 @@ searchForm.addEventListener("submit", (e) => {
       if (rover != "unselected") {
         warnInvalid("Error connecting to the NASA API: " + err);
       } else {
-         alert("Please select a rover.");
-         window.location.reload();
+        alert("Please select a rover.");
+        window.location.reload();
       }
     });
 });
