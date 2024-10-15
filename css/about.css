@@ -52,7 +52,7 @@ nav a:hover {
 }
 
 /* Page Heading */
-h2 {
+.pageHeading {
     text-align: center;
     margin-top: 20px;
     font-size: 1.5rem;
@@ -117,4 +117,9 @@ button {
 
 button:hover {
     background-color: #023E7D;
+}
+
+.aboutContainer h2, h3 {
+    padding-top: 0.25em;
+    padding-bottom: 0.25em;
 }
