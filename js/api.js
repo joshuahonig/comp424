@@ -11,3 +11,9 @@ let apikey = localStorage.getItem("apikey");
 if (apikey === null) {
   warnInvalid("No API key specified.");
 }
+
+var logoutBtn = document.getElementById("logoutLink");
+logoutBtn.onclick = function () {
+  localStorage.removeItem("apikey");
+  window.location.href = "/index.html";
+};
