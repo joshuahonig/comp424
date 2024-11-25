@@ -1,4 +1,4 @@
-//var apikey = localStorage.getItem("apikey");
+// This script will be loaded after the common API script, so things like apikey and warnInvalid will already be defined.
 if (apikey === null) {
   warnInvalid("No API key specified.");
 } 
@@ -8,7 +8,6 @@ fetch("https://api.nasa.gov/planetary/apod?api_key=" + apikey)
     return response.json();
   }))
   .then(function (response) {
-    console.log(response);
     if (response.hasOwnProperty("error")) {
       // If API response has "error" key.
       warnInvalid('API response: \n"' + response['error']['message'] + '"');
@@ -17,8 +16,6 @@ fetch("https://api.nasa.gov/planetary/apod?api_key=" + apikey)
       // Store the keys locally
       localStorage.setItem("apod.url", response['url']);
       localStorage.setItem("apod.title", response['title']);
-      // Set the background image
-      //document.body.style.backgroundImage = "url('" + response['hdurl'] + "')"; 
       // Show success text
       document.getElementById("textWait").style.display = "none";
       document.getElementById("textSuccess").style.display = "block";
