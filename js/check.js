@@ -1,19 +1,14 @@
 function warnInvalid(reason) {
   alert("Bad API key! " + reason);
-  document.cookie = "apikey=; expires=" + new Date(0).toUTCString(); // force apikey cookie to expire
+  localStorage.removeItem("apikey");
   window.location.href = "/";
 }
 
-// Search document.cookie for the API key.
-var match = document.cookie.match(new RegExp("(^| )apikey=([^;]+)"));
-let apikey;
-if (match) {
-  apikey = match[2];
-} else {
+var apikey = localStorage.getItem("apikey");
+if (apikey === null) {
   warnInvalid("No API key specified.");
-}
+} 
 // Test the given API key by attempting to fetch the Astronomy Picture of the Day.
-var test = "";
 fetch("https://api.nasa.gov/planetary/apod?api_key=" + apikey)
   .then((function (response) {
     return response.json();

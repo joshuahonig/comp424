@@ -10,6 +10,6 @@ loginForm.addEventListener("submit", (e) => {
   e.preventDefault(); // prevent the form from submitting
   /* THE FOLLOWING IS REALLY REALLY DANGEROUS AND SHOULD NEVER BE DONE IN THE REAL WORLD! 
        Storing sensitive information client-side is a HUGE no-no. It pains me to do this. */
-  setCookie("apikey", document.getElementById("apiKeyTextbox").value);
+  localStorage.setItem("apikey", document.getElementById("apiKeyTextbox").value);
   window.location.href = "/check.html";
 });
