@@ -13,7 +13,9 @@ if (apikey === null) {
 }
 
 var logoutBtn = document.getElementById("logoutLink");
-logoutBtn.onclick = function () {
-  localStorage.removeItem("apikey");
-  window.location.href = "/index.html";
-};
+if (logoutBtn !== null) {
+  logoutBtn.onclick = function () {
+    localStorage.removeItem("apikey");
+    window.location.href = "/index.html";
+  };
+}

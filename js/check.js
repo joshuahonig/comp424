@@ -1,10 +1,4 @@
-function warnInvalid(reason) {
-  alert("Bad API key! " + reason);
-  localStorage.removeItem("apikey");
-  window.location.href = "/";
-}
-
-var apikey = localStorage.getItem("apikey");
+//var apikey = localStorage.getItem("apikey");
 if (apikey === null) {
   warnInvalid("No API key specified.");
 } 
