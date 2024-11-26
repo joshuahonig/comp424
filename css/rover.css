@@ -23,6 +23,39 @@ body {
     color: white;
 }
 
+.intro-logo {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.intro-title {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.intro-nav {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    display: flex;
+    gap: 15px;
+    font-size: 1rem;
+}
+
+.intro-nav a {
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+    transition: background 0.3s ease;
+}
+
+.intro-nav a:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+}
+
 #logo {
     height: 80px;
     width: auto;
@@ -33,23 +66,7 @@ h1 {
     margin-left: 20px;
 }
 
-nav {
-    display: flex;
-    gap: 15px;
-    font-size: 1rem;
-}
 
-nav a {
-    color: white;
-    text-decoration: none;
-    padding: 5px 10px;
-    transition: background 0.3s ease;
-}
-
-nav a:hover {
-    background-color: rgba(255, 255, 255, 0.3);
-    border-radius: 5px;
-}
 
 /* Page Heading */
 h2 {
