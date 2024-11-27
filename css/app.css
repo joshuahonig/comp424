@@ -21,6 +21,8 @@ body {
     padding: 20px;
     background-color: #024CAA;
     color: white;
+    background: linear-gradient(to right, #024CAA, #023E7D);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .navbar-logo {
@@ -102,10 +104,30 @@ h2 {
     border: 3px solid #333;
 }
 
+.container img:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+form {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+form:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+
 figcaption {
-    margin-top: 10px;
     font-size: 1rem;
-    color: #024CAA;
+    font-style: italic;
+    color: #023E7D;
 }
 
 .broken {
@@ -119,6 +141,8 @@ footer {
     padding: 15px;
     text-align: center;
     font-size: 0.9rem;
+    background: linear-gradient(to right, #024CAA, #023E7D);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 button,
@@ -152,11 +176,19 @@ button {
     color: white;
     cursor: pointer;
     border: none;
-    transition: background 0.3s ease;
+    border-radius: 8px;
+    padding: 12px 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 button:hover {
     background-color: #023E7D;
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
 }
 
 button:disabled {
