@@ -293,3 +293,22 @@ main {
     padding-left: 40px;
     padding-right: 40px;
 }
+
+@media (max-width: 768px) {
+    .container {
+        max-width: 100%;
+    }
+
+    img {
+        height: auto;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    button {
+        width: 100%;
+    }
+}
