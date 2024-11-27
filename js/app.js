@@ -15,9 +15,6 @@ if (typeof authNotRequired === "undefined") {
     warnInvalid("No API key specified.");
   }
 
-  console.log("Loaded API");
-} else {
-  console.log("Page has no auth; not loading API");
 }
 
 /* Load the navbar. */
@@ -61,7 +58,3 @@ footerRequest.onload = function () {
   }
 };
 footerRequest.send();
-
-/* todo: implement this on pages beyond rover.html, implement navbar in this script and beyond rover.html; 
-         add logic to navbar code that hides logout if not logged in */
-/* further todo: implement other common elements, like footer */
