@@ -108,6 +108,11 @@ figcaption {
     color: #024CAA;
 }
 
+.broken {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
 footer {
     background-color: #024CAA;
     color: white;
@@ -168,7 +173,7 @@ button:disabled {
 }
 
 .sublabel {
-    font-size: 0.75em; 
+    font-size: 0.75em;
     text-align: left;
 }
 
@@ -187,7 +192,7 @@ button:disabled {
     flex-grow: 1;
     flex-basis: 300px;
     max-width: 300px;
-    
+
 }
 
 .gallery img {
@@ -209,7 +214,7 @@ button:disabled {
     background-repeat: no-repeat no-repeat;
     background-position: center center;
     background-color: black;
-  }
+}
 
 /* Main Content Styling */
 .searchForm {
@@ -236,7 +241,8 @@ button:disabled {
     border-radius: 5px;
 }
 
-.aboutContainer h2, h3 {
+.aboutContainer h2,
+h3 {
     padding-top: 0.25em;
     padding-bottom: 0.25em;
 }
@@ -246,11 +252,12 @@ button:disabled {
     gap: 1em;
 }
 
-#roverSelect, #camSelect {
+#roverSelect,
+#camSelect {
     width: 15em;
 }
 
-main{
+main {
     padding-left: 40px;
     padding-right: 40px;
 }
