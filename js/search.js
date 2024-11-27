@@ -92,7 +92,7 @@ roverSelect.addEventListener("change", function () {
   /* This function is supposed to use the /manifests/ROVERNAME endpoint, but this endpoint
   recently started to return HTTP 500 Internal Server Error. Using the /rovers endpoint 
   is not ideal, but retrieves the intended information. */
-  fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers?api_key=${apikey}`)
+  fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers?api_key=${localStorage.getItem("apikey")}`)
     .then((function (response) {
       return response.json();
     }))
@@ -125,7 +125,7 @@ searchForm.addEventListener("submit", (e) => {
   var cam = document.getElementById("searchForm").elements['camSelect'].value;
   var date = document.getElementById("searchForm").elements['searchDate'].value;
   toggleInputs(false);
-  fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?api_key=${apikey}&earth_date=${date}&camera=${cam}`)
+  fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?api_key=${localStorage.getItem("apikey")}&earth_date=${date}&camera=${cam}`)
     .then((function (response) {
       return response.json();
     }))

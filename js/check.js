@@ -1,9 +1,9 @@
 // This script will be loaded after the common API script, so things like apikey and warnInvalid will already be defined.
-if (apikey === null) {
+if (localStorage.getItem("apikey") === null) {
   warnInvalid("No API key specified.");
 } 
 // Test the given API key by attempting to fetch the Astronomy Picture of the Day.
-fetch("https://api.nasa.gov/planetary/apod?api_key=" + apikey)
+fetch("https://api.nasa.gov/planetary/apod?api_key=" + localStorage.getItem("apikey"))
   .then((function (response) {
     return response.json();
   }))
