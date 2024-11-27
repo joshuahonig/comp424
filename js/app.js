@@ -50,6 +50,18 @@ navbarRequest.onload = function () {
 };
 navbarRequest.send();
 
+/* Load the footer. */
+var footerRequest = new XMLHttpRequest();
+footerRequest.open("GET", "/parts/footer.html", true);
+footerRequest.onload = function () {
+  if (footerRequest.status >= 200 && footerRequest.status < 400) {
+    /* Set the footer element content. */
+    document.getElementById("footer").innerHTML = footerRequest.responseText;
+    document.getElementById("year").textContent = new Date().getFullYear();
+  }
+};
+footerRequest.send();
+
 /* todo: implement this on pages beyond rover.html, implement navbar in this script and beyond rover.html; 
          add logic to navbar code that hides logout if not logged in */
 /* further todo: implement other common elements, like footer */
