@@ -97,19 +97,6 @@ h2 {
     text-align: center;
 }
 
-.container img {
-    width: 100%;
-    height: 200px;
-    border-radius: 10px;
-    border: 3px solid #333;
-}
-
-.container img:hover {
-    transform: scale(1.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-}
-
 form {
     background-color: #f9f9f9;
     padding: 20px;
@@ -311,4 +298,52 @@ main {
     button {
         width: 100%;
     }
+}
+
+/* Rover Page Styling */
+.roverContent #content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 40px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.roverContent .container {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+}
+
+.roverContent .container:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.roverContent .container img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 10px 10px 0 0;
+    border: none;
+}
+
+.roverContent .container img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.roverContent figcaption {
+    background-color: #e6e6e6;
+    color: #023E7D;
+    padding: 10px;
+    font-size: 1rem;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 0 0 10px 10px;
 }
