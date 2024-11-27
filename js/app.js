@@ -33,9 +33,9 @@ navbarRequest.onload = function () {
         localStorage.removeItem("apikey");
         window.location.href = "/index.html";
       }
-    }
+    } 
     /* If we're not logged in, don't show buttons that require auth. */
-    if (localStorage.getItem("apikey") === null) {
+    if (localStorage.getItem("apikey") === null){
       document.getElementById("roverLink").style.display = "none";
       document.getElementById("searchLink").style.display = "none";
       document.getElementById("aboutLink").style.display = "none";
@@ -43,7 +43,7 @@ navbarRequest.onload = function () {
     }
 
     /* Set the page title. */
-    if (document.querySelector('meta[name="page-title"]') !== null) {
+    if (document.querySelector('meta[name="page-title"]') !== null){
       document.getElementById("pageTitle").innerHTML = document.querySelector('meta[name="page-title"]').content;
     }
   }
@@ -61,35 +61,3 @@ footerRequest.onload = function () {
   }
 };
 footerRequest.send();
-
-// Dark Mode functionality
-document.addEventListener('DOMContentLoaded', () => {
-  const darkModeToggle = document.getElementById('darkModeToggle');
-
-  if (darkModeToggle) {
-    darkModeToggle.addEventListener('click', () => {
-      // Toggle the 'dark-mode' class on the body
-      document.body.classList.toggle('dark-mode');
-
-      // Determine the current mode
-      const isDarkMode = document.body.classList.contains('dark-mode');
-
-      // Update button text
-      darkModeToggle.textContent = isDarkMode ? 'Light Mode' : 'Dark Mode';
-
-      // Save the user's preference in localStorage
-      localStorage.setItem('darkMode', isDarkMode);
-    });
-
-    // Apply user's preference on page load
-    const isDarkMode = localStorage.getItem('darkMode') === 'true';
-    if (isDarkMode) {
-      document.body.classList.add('dark-mode');
-      darkModeToggle.textContent = 'Light Mode';
-    } else {
-      darkModeToggle.textContent = 'Dark Mode';
-    }
-  } else {
-    console.error("Dark mode toggle button not found in the DOM.");
-  }
-});
