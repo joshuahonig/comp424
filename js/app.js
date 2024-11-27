@@ -42,7 +42,10 @@ navbarRequest.onload = function () {
       document.getElementById("logoutLink").style.display = "none";
     }
 
-
+    /* Set the page title. */
+    if (document.querySelector('meta[name="page-title"]') !== null){
+      document.getElementById("pageTitle").innerHTML = document.querySelector('meta[name="page-title"]').content;
+    }
   }
 };
 navbarRequest.send();
