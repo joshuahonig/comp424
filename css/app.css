@@ -241,3 +241,13 @@ button:disabled {
     padding-top: 0.25em;
     padding-bottom: 0.25em;
 }
+
+.searchControls {
+    display: flex;
+    gap: 1em;
+}
+
+#roverSelect, #camSelect {
+    width: 15em;
+}
+
