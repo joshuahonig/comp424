@@ -145,16 +145,50 @@ searchForm.addEventListener("submit", (e) => {
         }
       }
 
-      // https://stackoverflow.com/a/67816263
+      /* https://stackoverflow.com/a/67816263 */
       var galleryImages = document.querySelectorAll(".gallery a");
       var fullPageViewer = document.querySelector("#fullscreenImageViewer");
-      galleryImages.forEach(link => {
-        link.addEventListener('click', function () {
-          fullPageViewer.style.backgroundImage = `url(${link.children[0].src})`;
-          fullPageViewer.style.display = "block";
-          window.scrollTo(0, 0);
-        })
-      })
+      var currentIndex = 0; // Track the currently displayed image
+
+      /* Function to update the full-page viewer */
+      function showImage(index) {
+        currentIndex = index;
+        var imageSrc = galleryImages[currentIndex].children[0].src;
+        fullPageViewer.style.backgroundImage = `url(${imageSrc})`;
+        fullPageViewer.style.display = "block";
+        window.scrollTo(0, 0);
+      }
+
+      /* Add click event to each gallery image */
+      galleryImages.forEach((link, index) => {
+        link.addEventListener('click', function (event) {
+          event.preventDefault(); // Prevent default link behavior
+          showImage(index);
+        });
+      });
+
+      /* Add event listener for keyboard navigation */
+      document.addEventListener('keydown', function (event) {
+        if (fullPageViewer.style.display === "block") {
+          if (event.key === "ArrowRight") {
+            // Show next image
+            currentIndex = (currentIndex + 1) % galleryImages.length; // Wrap around
+            showImage(currentIndex);
+          } else if (event.key === "ArrowLeft") {
+            // Show previous image
+            currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length; // Wrap around
+            showImage(currentIndex);
+          } else if (event.key === "Escape") {
+            // Close the viewer
+            fullPageViewer.style.display = "none";
+          }
+        }
+      });
+
+      /* Close the viewer when clicking outside the image */
+      fullPageViewer.addEventListener('click', function () {
+        fullPageViewer.style.display = "none";
+      });
 
       toggleInputs(true);
     })
