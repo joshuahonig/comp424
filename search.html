@@ -5,16 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Default Page</title>
-    <link rel="stylesheet" href="css/search.css">
+    <link rel="stylesheet" href="css/app.css">
 </head>
 
 <body>
-    <header class="intro" id="navbar"></header>
-    
-    <h2>Search</h2>
+    <header class="navbar" id="navbar"></header>
 
-    <main class="content">
-        <div class="container">
+    <p class="pageHeading">Search</p>
+
+    <main id="content" class="searchForm">
+        <div>
             <progress id="loadingBar" style="display: none"></progress>
             <form action="#" id="searchForm">
 
@@ -64,7 +64,7 @@
                 </select>
                 <br>
                 <label for="searchDate">Search Date:</label>
-                <nav>
+                <nav class="formDateElt">
                     <button type="button" class="dateButton" onclick="dateButtonClick('l')">◀</button>
                     <input type="date" id="searchDate" name="searchDate" value="2024-09-24" min="2000-01-01" max="2025-01-01" class="searchInput">
                     <button type="button" class="dateButton" onclick="dateButtonClick('r')">▶</button>

@@ -13,8 +13,8 @@ body {
     color: #333;
 }
 
-/* Introduction Section */
-.intro {
+/* Navbar Section */
+.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -23,19 +23,19 @@ body {
     color: white;
 }
 
-.intro-logo {
+.navbar-logo {
     flex: 1;
     display: flex;
     justify-content: flex-start;
 }
 
-.intro-title {
+.navbar-title {
     flex: 1;
     display: flex;
     justify-content: center;
 }
 
-.intro-nav {
+.navbar-nav {
     flex: 1;
     display: flex;
     justify-content: flex-end;
@@ -44,14 +44,14 @@ body {
     font-size: 1rem;
 }
 
-.intro-nav a {
+.navbar-nav a {
     color: white;
     text-decoration: none;
     padding: 5px 10px;
     transition: background 0.3s ease;
 }
 
-.intro-nav a:hover {
+.navbar-nav a:hover {
     background-color: rgba(255, 255, 255, 0.3);
     border-radius: 5px;
 }
@@ -66,14 +66,19 @@ h1 {
     margin-left: 20px;
 }
 
-
-
 /* Page Heading */
 h2 {
+    margin-top: 20px;
+    font-size: 1.5rem;
+    color: #024CAA;
+}
+
+.pageHeading {
     text-align: center;
     margin-top: 20px;
     font-size: 1.5rem;
     color: #024CAA;
+    font-weight: bold;
 }
 
 /* Main Content Styling */
@@ -104,11 +109,6 @@ figcaption {
     color: #024CAA;
 }
 
-/* Forms are hidden by default */
-form {
-    display: none;
-}
-
 footer {
     background-color: #024CAA;
     color: white;
@@ -130,6 +130,19 @@ input[type="date"] {
     box-sizing: border-box;
 }
 
+button,
+select,
+input[type="text"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
 button {
     background-color: #024CAA;
     color: white;
@@ -140,4 +153,91 @@ button {
 
 button:hover {
     background-color: #023E7D;
+}
+
+button:disabled {
+    background-color: #a1caff;
+}
+
+.dateButton {
+    width: 15%;
+    background-color: #000000;
+}
+
+.dateButton:hover {
+    background-color: #555555;
+}
+
+.sublabel {
+    font-size: 0.75em; 
+    text-align: left;
+}
+
+.warning {
+    padding-top: 0.25em;
+}
+
+.gallery {
+    display: flex;
+    align-content: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.gallery a {
+    flex-grow: 1;
+    flex-basis: 300px;
+    max-width: 300px;
+    
+}
+
+.gallery img {
+    height: 15vw;
+    width: 15vw;
+    object-fit: cover;
+}
+
+/* https://stackoverflow.com/a/67816263 */
+#fullscreenImageViewer {
+    display: none;
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-size: contain;
+    background-repeat: no-repeat no-repeat;
+    background-position: center center;
+    background-color: black;
+  }
+
+/* Main Content Styling */
+.searchForm {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.formDateElt {
+    display: flex;
+    gap: 15px;
+    font-size: 1rem;
+}
+
+.formDateElt a {
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+    transition: background 0.3s ease;
+}
+
+.formDateElt a:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+}
+
+.aboutContainer h2, h3 {
+    padding-top: 0.25em;
+    padding-bottom: 0.25em;
 }
