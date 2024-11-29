@@ -31,6 +31,8 @@ navbarRequest.onload = function () {
     if (logoutBtn !== null) {
       logoutBtn.onclick = function () {
         localStorage.removeItem("apikey");
+        document.body.classList.remove('dark-mode');
+        localStorage.setItem('darkMode', false);
         window.location.href = "/index.html";
       }
     }
@@ -65,7 +67,6 @@ footerRequest.onload = function () {
 };
 footerRequest.send();
 
-
 function DarkModeToggleSetUp() {
   const darkModeToggle = document.getElementById('darkModeToggle');
 
@@ -95,4 +96,3 @@ function DarkModeToggleSetUp() {
     console.warn("Dark mode toggle button not found on this page.");
   }
 };
-
