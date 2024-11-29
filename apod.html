@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="page-title" content="APOD">
+    <title>APOD</title>
+    <link rel="stylesheet" href="css/app.css">
+</head>
+
+<body>
+    <header class="navbar" id="navbar"></header>
+    <main id="content">
+        <section id="imageDisplay">
+            <div id="apodContainer" style="display: none;">
+                <h2 id="apodTitle"></h2>
+                <img id="apodImage" alt="Astronomy Picture of the Day">
+                <p id="apodExplanation"></p>
+            </div>
+            <div id="noresults" style="display: none;">
+                <p>No image found for the selected date. Please try another date.</p>
+            </div>
+        </section>
+
+        <form id="apodForm">
+            <label for="searchDate">Select Date:</label>
+            <input type="date" id="searchDate" name="searchDate" required>
+            <button type="submit">Search</button>
+        </form>
+    </main>
+
+    <footer id="footer"></footer>
+
+    <script src="/js/apod.js"></script>
+    <script src="/js/app.js"></script>
+</body>
+
+</html>
