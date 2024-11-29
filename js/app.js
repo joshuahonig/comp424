@@ -42,6 +42,7 @@ navbarRequest.onload = function () {
       document.getElementById("searchLink").style.display = "none";
       document.getElementById("aboutLink").style.display = "none";
       document.getElementById("logoutLink").style.display = "none";
+      document.getElementById("apodLink").style.display = "none";
       document.getElementById("darkModeToggle").style.display = "none";
     }
 
