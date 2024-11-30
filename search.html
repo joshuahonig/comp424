@@ -13,7 +13,7 @@
     <header class="navbar" id="navbar"></header>
     <main>
         <form action="#" id="searchForm">
-        <nav class="searchControls">
+            <nav class="searchControls">
 
                 <select name="roverSelect" id="roverSelect" class="searchInput">
                     <option value="unselected" disabled selected="selected">Select Rover...</option>
@@ -22,7 +22,7 @@
                     <option value="curiosity">Curiosity</option>
                     <option value="perseverance">Perseverance</option>
                 </select>
-                
+
                 <select name="camSelect" id="camSelect" class="searchInput">
                     <option value="FHAZ" id="camSelectFHAZ">Front Hazard Avoidance Camera</option>
                     <option value="RHAZ" id="camSelectRHAZ">Rear Hazard Avoidance Camera</option>
@@ -57,34 +57,39 @@
                     <option value="SKYCAM" id="camSelectSKYCAM">MEDA Skycam</option>
                     <option value="SHERLOC_WATSON" id="camSelectSHERLOC_WATSON">SHERLOC WATSON Camera</option>
                 </select>
-                
+
                 <label for="searchDate">
-                <nav class="formDateElt">
-                    <button type="button" class="dateButton" onclick="dateButtonClick('l')">◀</button>
-                    <input type="date" id="searchDate" name="searchDate" value="2024-09-24" min="2000-01-01" max="2025-01-01" class="searchInput">
-                    <button type="button" class="dateButton" onclick="dateButtonClick('r')">▶</button>
-                </nav><p id="dateCaption" class="sublabel" style="display: none">
-                    Range of available dates: <a id="dateRangeOldest" href="#" onclick="dateRangeClick('oldest')">blah</a> to <a id="dateRangeNewest" href="#" onclick="dateRangeClick('newest')">blah</a>
-                </p></label>
-                
+                    <nav class="formDateElt">
+                        <button type="button" class="dateButton" onclick="dateButtonClick('l')">◀</button>
+                        <input type="date" id="searchDate" name="searchDate" value="2024-09-24" min="2000-01-01"
+                            max="2025-01-01" class="searchInput">
+                        <button type="button" class="dateButton" onclick="dateButtonClick('r')">▶</button>
+                    </nav>
+                    <p id="dateCaption" class="sublabel" style="display: none">
+                        Range of available dates: <a id="dateRangeOldest" href="#"
+                            onclick="dateRangeClick('oldest')">blah</a> to <a id="dateRangeNewest" href="#"
+                            onclick="dateRangeClick('newest')">blah</a>
+                    </p>
+                </label>
+
                 <button type="submit" id="submit" class="searchInput">Search</button>
-            
-        </nav>
-    </form>
-    <progress id="loadingBar" style="width: 100%; display: none"></progress>
+
+            </nav>
+        </form>
+        <progress id="loadingBar" style="width: 100%; display: none"></progress>
     </main>
-    
-        <div class="container" style="width: 100%; padding-bottom: 30px;">
-            <div class="gallery" id="photoGallery">
-                <!-- This will be filled when the JS runs and gets images. -->
-            </div>
-            <div id="noresults" class="warning" style="display: none;">
-                <p style="font-size: 2em;">Sorry, no results :(</p>
-                <br>
-                <p>Please make sure you have <br> selected a valid camera and date.</p>
-            </div>
+
+    <div style="width: 100%; padding-bottom: 30px;">
+        <div class="gallery" id="photoGallery">
+            <!-- This will be filled when the JS runs and gets images. -->
         </div>
-    
+        <div id="noresults" class="warning" style="display: none;">
+            <p style="font-size: 2em;">Sorry, no results :(</p>
+            <br>
+            <p>Please make sure you have <br> selected a valid camera and date.</p>
+        </div>
+    </div>
+
 
     <footer id="footer"></footer>
 
