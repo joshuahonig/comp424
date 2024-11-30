@@ -1,14 +1,13 @@
 const apodForm = document.getElementById("apodForm");
 const apodButton = apodForm.querySelector("button");
+const apodContainer = document.getElementById("apodContainer");
+const apodTitle = document.getElementById("apodTitle");
+const apodImage = document.getElementById("apodImage");
+const apodExplanation = document.getElementById("apodExplanation");
+const noResults = document.getElementById("noresults");
 
 apodButton.addEventListener("click", () => {
     const date = document.getElementById("searchDate").value;
-    const apodContainer = document.getElementById("apodContainer");
-    const apodTitle = document.getElementById("apodTitle");
-    const apodImage = document.getElementById("apodImage");
-    const apodExplanation = document.getElementById("apodExplanation");
-    const noResults = document.getElementById("noresults");
-
     if (!date) {
         alert("Please select a date before submitting.");
         dateInput.focus();
@@ -37,4 +36,15 @@ apodButton.addEventListener("click", () => {
             console.error("Error fetching APOD data:", err);
             noResults.style.display = "block";
         });
+});
+
+// Code to execute when the entire page is fully loaded
+window.addEventListener('load', function () {
+    if (localStorage.getItem("apod.url") && localStorage.getItem("apod.title") && localStorage.getItem("apod.explanation")) {
+        apodTitle.textContent = localStorage.getItem("apod.title")
+        apodImage.src = localStorage.getItem("apod.url")
+        apodExplanation.textContent = localStorage.getItem("apod.explanation")
+
+        apodContainer.style.display = "block";
+    }
 });
