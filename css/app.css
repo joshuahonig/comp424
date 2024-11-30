@@ -260,6 +260,10 @@ button:disabled {
     border-radius: 5px;
 }
 
+.dateRangeLink {
+    color: inherit;
+}
+
 .aboutContainer h2,
 h3 {
     padding-top: 0.25em;
