@@ -69,7 +69,7 @@ footerRequest.onload = function () {
 footerRequest.send();
 
 function DarkModeToggleSetUp() {
-  const darkModeToggle = document.getElementById('darkModeToggle');
+  const darkModeToggle = document.getElementById('darkmodeLink');
 
   if (darkModeToggle) {
     darkModeToggle.addEventListener('click', () => {
