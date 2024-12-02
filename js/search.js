@@ -153,6 +153,7 @@ searchForm.addEventListener("submit", (e) => {
       /* Function to update the full-page viewer */
       function showImage(index) {
         currentIndex = index;
+        storeScrollPosition();
         var imageSrc = galleryImages[currentIndex].children[0].src;
         fullPageViewer.style.backgroundImage = `url(${imageSrc})`;
         fullPageViewer.style.display = "block";
@@ -188,6 +189,7 @@ searchForm.addEventListener("submit", (e) => {
       /* Close the viewer when clicking outside the image */
       fullPageViewer.addEventListener('click', function () {
         fullPageViewer.style.display = "none";
+        restoreScrollPosition();
       });
 
       toggleInputs(true);
@@ -201,3 +203,17 @@ searchForm.addEventListener("submit", (e) => {
       }
     });
 });
+
+/* Store scroll position in localStorage */
+function storeScrollPosition() {
+  localStorage.setItem("scrollPosition", window.scrollY);
+}
+
+/* Restore scroll position from localStorage */
+function restoreScrollPosition() {
+  const scrollPosition = localStorage.getItem("scrollPosition");
+  if (scrollPosition) {
+    window.scrollTo(0, parseInt(scrollPosition, 10));
+    localStorage.removeItem("scrollPosition");
+  }
+}
