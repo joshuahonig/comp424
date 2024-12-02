@@ -48,3 +48,20 @@ window.addEventListener('load', function () {
         apodContainer.style.display = "block";
     }
 });
+
+let clickTimer;
+
+apodImage.addEventListener("click", function (event) {
+    event.preventDefault(); // Prevent default link behavior
+    clearTimeout(clickTimer);
+    clickTimer = setTimeout(() => {
+        //TODO: put code that brings up full page viewer
+    }, 200);
+
+});
+
+apodImage.addEventListener("dblclick", function (event) {
+    event.preventDefault(); // Prevent default link behavior
+    clearTimeout(clickTimer);
+    window.open(apodImage.src, "_blank");
+});
