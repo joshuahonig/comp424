@@ -160,11 +160,26 @@ searchForm.addEventListener("submit", (e) => {
         window.scrollTo(0, 0);
       }
 
+      let clickTimer;
+
       /* Add click event to each gallery image */
       galleryImages.forEach((link, index) => {
         link.addEventListener('click', function (event) {
           event.preventDefault(); // Prevent default link behavior
-          showImage(index);
+          clearTimeout(clickTimer);
+          clickTimer = setTimeout(() => {
+            showImage(index);
+          }, 200);
+        });
+      });
+
+      /* Add double-click event to each gallery image */
+      galleryImages.forEach((link) => {
+        link.addEventListener('dblclick', function (event) {
+          event.preventDefault(); // Prevent default link behavior
+          clearTimeout(clickTimer);
+          const imageSrc = link.children[0].src;
+          window.open(imageSrc, '_blank');
         });
       });
 
