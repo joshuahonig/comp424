@@ -145,12 +145,10 @@ searchForm.addEventListener("submit", (e) => {
         for (var x = 0; x < response['photos'].length; x++) {
           var link = document.createElement("a");
           link.setAttribute("href", response['photos'][x]['img_src']);
-          //link.setAttribute("data-pswp-width", "1200");
-          //link.setAttribute("data-pswp-height", "1200");
           link.setAttribute("id", btoa(response['photos'][x]['img_src']));
           var img = document.createElement("img");
           img.src = response['photos'][x]['img_src'];
-          img.setAttribute("alt", "");
+          img.setAttribute("alt", `Image ${response['photos'][x]['id']}`);
           link.appendChild(img);
           img.onload = function() {
             console.log(this.parentElement.id);
