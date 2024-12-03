@@ -145,12 +145,19 @@ searchForm.addEventListener("submit", (e) => {
         for (var x = 0; x < response['photos'].length; x++) {
           var link = document.createElement("a");
           link.setAttribute("href", response['photos'][x]['img_src']);
-          link.setAttribute("data-pswp-width", "1200");
-          link.setAttribute("data-pswp-height", "1200");
+          //link.setAttribute("data-pswp-width", "1200");
+          //link.setAttribute("data-pswp-height", "1200");
+          link.setAttribute("id", btoa(response['photos'][x]['img_src']));
           var img = document.createElement("img");
           img.src = response['photos'][x]['img_src'];
-          img.setAttribute("alt", "")
+          img.setAttribute("alt", "");
           link.appendChild(img);
+          img.onload = function() {
+            console.log(this.parentElement.id);
+            document.getElementById(this.parentElement.id).setAttribute("data-pswp-width", this.width);
+            document.getElementById(this.parentElement.id).setAttribute("data-pswp-height", this.height);
+            document.getElementById(this.parentElement.id).children[0].setAttribute("style", `width: ${this.width/4}px; height: ${this.height/4}px`);
+          }
           gallery.appendChild(link);
         }
       }
@@ -158,6 +165,8 @@ searchForm.addEventListener("submit", (e) => {
       var pswpGallery = new PhotoSwipeLightbox({
         gallery: '.photoGallery',
         children: 'a',
+        initialZoomLevel: 'fill',
+        secondaryZoomLevel: 3.5,
         pswpModule: PhotoSwipe 
       });
       pswpGallery.init();
