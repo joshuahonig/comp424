@@ -498,3 +498,7 @@ main .apod {
     padding-top: 2em;
     padding-bottom: 2em;
 }
+
+.error {
+    color: #aa0202
+}

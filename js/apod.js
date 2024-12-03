@@ -27,9 +27,13 @@ apodButton.addEventListener("click", () => {
                 apodExplanation.textContent = data.explanation;
 
                 apodContainer.style.display = "block";
+                apodTitle.classList.remove("error");
             } else {
                 // Handle non-image media types or missing data
                 noResults.style.display = "block";
+                apodTitle.textContent = "Error!"
+                apodTitle.classList.add("error");
+                apodExplanation.textContent = "No image was found for the selected date. Please try searching for another day."
             }
         })
         .catch((err) => {
