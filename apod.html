@@ -11,24 +11,26 @@
 
 <body>
     <header class="navbar" id="navbar"></header>
-    <main id="content">
-        <section id="imageDisplay">
+    <main id="content" class="apod">
+        <section class="apodCol apodDummy"></section>
+        <section id="imageDisplay" class="apodCol apodLeft">
             <div id="apodContainer" style="display: none;">
-                <h2 id="apodTitle"></h2>
                 <img id="apodImage" alt="Astronomy Picture of the Day">
-                <p id="apodExplanation"></p>
             </div>
             <div id="noresults" style="display: none;">
                 <p>No image found for the selected date. Please try another date.</p>
             </div>
         </section>
-        <div>
+        <section class="apodCol apodRight">
+            <h2 id="apodTitle"></h2>
+            <p id="apodExplanation"></p>
             <form action="#" id="apodForm">
                 <label for="searchDate">Select Date:</label>
                 <input type="date" id="searchDate" name="searchDate" required>
                 <button type="button">Search</button>
             </form>
-        </div>
+        </section>
+        <section class="apodCol apodDummy"></section>
     </main>
 
     <footer id="footer"></footer>

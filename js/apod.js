@@ -46,6 +46,10 @@ window.addEventListener('load', function () {
         apodExplanation.textContent = localStorage.getItem("apod.explanation")
 
         apodContainer.style.display = "block";
+
+        const today = new Date();
+        this.document.getElementById("searchDate").value = today.getFullYear().toString() + '-' + (today.getMonth() + 1).toString().padStart(2, 0) + '-' + today.getDate().toString().padStart(2, 0);
+
     }
 });
 
