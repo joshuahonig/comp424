@@ -85,7 +85,7 @@ h2 {
 }
 
 /* Main Content Styling */
-#content {
+#content, .content {
     flex: 1;
     display: flex;
     flex-wrap: wrap;
@@ -479,11 +479,11 @@ main .apod {
 }
 
 .apodLeft {
-    flex-grow: 4;
+    flex-grow: 5;
 }
 
 .apodRight {
-    flex-grow: 2;
+    flex-grow: 3;
 }
 
 .apodDummy {
@@ -492,11 +492,6 @@ main .apod {
 
 #apodTitle {
     text-align: center;
-}
-
-#apodExplanation {
-    padding-top: 2em;
-    padding-bottom: 2em;
 }
 
 .error {

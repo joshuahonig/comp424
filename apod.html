@@ -11,19 +11,23 @@
 
 <body>
     <header class="navbar" id="navbar"></header>
-    <main id="content" class="apod">
-        <section class="apodCol apodDummy"></section>
-        <section id="imageDisplay" class="apodCol apodLeft">
+    <main id="content" class="content apod">
+        <section id="imageDisplay">
             <div id="apodContainer" style="display: none;">
+                <h2 id="apodTitle"></h2>
                 <img id="apodImage" alt="Astronomy Picture of the Day">
             </div>
             <div id="noresults" style="display: none;">
                 <img id="apodImage" src="/img/notFound.png" alt="Not Found">
             </div>
         </section>
+    </main>
+    <main class="content apod">
+        <section class="apodCol apodDummy"></section>
         <section class="apodCol apodRight">
-            <h2 id="apodTitle"></h2>
             <p id="apodExplanation"></p>
+        </section>
+        <section class="apodCol apodRight">            
             <form action="#" id="apodForm">
                 <label for="searchDate">Select Date:</label>
                 <input type="date" id="searchDate" name="searchDate" required>

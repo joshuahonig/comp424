@@ -22,7 +22,7 @@ apodButton.addEventListener("click", () => {
         .then((response) => response.json())
         .then((data) => {
             if (data.media_type === "image") {
-                apodTitle.textContent = data.title;
+                apodTitle.textContent = `Astronomy Picture of the Day: ${data.title}`;
                 apodImage.src = data.url;
                 apodExplanation.textContent = data.explanation;
 
@@ -46,7 +46,7 @@ apodButton.addEventListener("click", () => {
 // Code to execute when the entire page is fully loaded
 window.addEventListener('load', function () {
     if (localStorage.getItem("apod.url") && localStorage.getItem("apod.title") && localStorage.getItem("apod.explanation")) {
-        apodTitle.textContent = localStorage.getItem("apod.title")
+        apodTitle.textContent = `Astronomy Picture of the Day: ${localStorage.getItem("apod.title")}`
         apodImage.src = localStorage.getItem("apod.url")
         apodExplanation.textContent = localStorage.getItem("apod.explanation")
 
