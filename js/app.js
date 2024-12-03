@@ -79,7 +79,7 @@ function DarkModeToggleSetUp() {
       const isDarkMode = document.body.classList.contains('dark-mode');
 
       // Update button text
-      darkModeToggle.textContent = isDarkMode ? 'Light Mode' : 'Dark Mode';
+      darkModeToggle.innerHTML = isDarkMode ? '<i class="fa-solid fa-sun"></i> Light Mode' : '<i class="fa-solid fa-moon"></i> Dark Mode';
 
       // Save the user's preference in localStorage
       localStorage.setItem('darkMode', isDarkMode);
@@ -89,9 +89,9 @@ function DarkModeToggleSetUp() {
     const isDarkMode = localStorage.getItem('darkMode') === 'true';
     if (isDarkMode) {
       document.body.classList.add('dark-mode');
-      darkModeToggle.textContent = 'Light Mode';
+      darkModeToggle.innerHTML = '<i class="fa-solid fa-sun"></i> Light Mode';
     } else {
-      darkModeToggle.textContent = 'Dark Mode';
+      darkModeToggle.innerHTML = '<i class="fa-solid fa-moon"></i> Dark Mode';
     }
   } else {
     console.warn("Dark mode toggle button not found on this page.");
