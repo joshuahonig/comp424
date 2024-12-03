@@ -190,8 +190,12 @@ button:disabled {
     background-color: #000000;
 }
 
+.dateButton:disabled {
+    background-color: #999999 !important;
+}
+
 .dateButton:hover {
-    background-color: #555555;
+    background-color: #333333;
 }
 
 .sublabel {
