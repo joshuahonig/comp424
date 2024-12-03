@@ -72,7 +72,6 @@ h1 {
 
 /* Page Heading */
 h2 {
-    margin-top: 20px;
     font-size: 1.5rem;
     color: #024CAA;
 }
@@ -100,7 +99,7 @@ h2 {
     text-align: center;
 }
 
-form {
+form, .card {
     background-color: #f9f9f9;
     padding: 20px;
     border-radius: 10px;
@@ -108,7 +107,7 @@ form {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-form:hover {
+form:hover, .card:hover {
     transform: scale(1.02);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
@@ -161,7 +160,7 @@ input[type="text"] {
     box-sizing: border-box;
 }
 
-button {
+button, .btn {
     background-color: #024CAA;
     color: white;
     cursor: pointer;
@@ -172,17 +171,23 @@ button {
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-button:hover {
-    background-color: #023E7D;
+button:hover, .btn:hover {
+    background-color: #024CAA;
     transform: translateY(-2px);
 }
 
-button:active {
+button:active, .btn:active {
     transform: translateY(0);
 }
 
-button:disabled {
+button:disabled, .btn:disabled {
     background-color: #a1caff;
+}
+
+.btn-secondary {
+    background-color: unset !important;
+    color: #024CAA;
+    border: 2px solid #024CAA;
 }
 
 .dateButton {
@@ -429,4 +434,38 @@ main {
 .gallerySection{
     width: 100%;
     padding: 3em;
+}
+
+.unlink {
+    text-decoration: none;
+}
+
+#apiForm {
+    width: 35em;
+}
+
+.checkPage {
+    background-color: #000000;
+}
+
+body.checkPage p {
+    color: #ffffff;
+}
+
+body.checkPage .mainSection {
+    display: flex;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+section .frontAndCenter {
+    display: flex;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
 }

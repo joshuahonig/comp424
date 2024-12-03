@@ -14,13 +14,18 @@
 <body>
     <header class="navbar" id="navbar"></header>
     <main id="content">
-        <div class="container">
+        <section class="frontAndCenter">
             <form action="#" id="apiForm">
-                <input id="apiKeyTextbox" type="text" required placeholder="Your API key...">
+                <h2>Sign in</h2>
+                <p>Please provide your API key to continue.</p>
+                <input id="apiKeyTextbox" type="text" required placeholder="API Key">
                 <button type="submit">Submit</button>
+                <a href="https://api.nasa.gov/index.html" target="_blank" class="unlink">
+                    <button type="button" class="btn-secondary">I don't have a key</button>
+                </a>
             </form>
 
-        </div>
+        </section>
     </main>
 
     <footer id="footer"></footer>

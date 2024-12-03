@@ -20,6 +20,9 @@ fetch("https://api.nasa.gov/planetary/apod?api_key=" + localStorage.getItem("api
       // Show success text
       document.getElementById("textWait").style.display = "none";
       document.getElementById("textSuccess").style.display = "block";
+      document.getElementById("loadingBar").setAttribute("max", "100");
+      document.getElementById("loadingBar").setAttribute("value", "100");
+      // Redirect
       window.location.href = "/rover.html";
     } else {
       warnInvalid("API returned unexpected response.")
