@@ -1,3 +1,5 @@
+// get node in DOM
+let oppForm = document.getElementById('opportunityForm');
 oppForm.addEventListener('submit', () => {
     var form = new FormData(oppForm);
     var rov = form.get("roverSelect1");
@@ -9,7 +11,8 @@ oppForm.addEventListener('submit', () => {
     window.location.href = "search.html";
 });
 
-
+// get node in DOM
+let spiritForm = document.getElementById('spiritForm');
 spiritForm.addEventListener('submit', () => {
     var form = new FormData(spiritForm);
     var rov = form.get("roverSelect2");
@@ -21,7 +24,8 @@ spiritForm.addEventListener('submit', () => {
     window.location.href = "search.html";
 });
 
-
+// get node in DOM
+let curiosityForm = document.getElementById('curiosityForm');
 curiosityForm.addEventListener('submit', () => {
     var form = new FormData(curiosityForm);
     var rov = form.get("roverSelect3");
@@ -33,7 +37,8 @@ curiosityForm.addEventListener('submit', () => {
     window.location.href = "search.html";
 });
 
-
+// get node in DOM
+let perseveranceForm = document.getElementById('perseveranceForm');
 perseveranceForm.addEventListener('submit', () => {
     var form = new FormData(perseveranceForm);
     var rov = form.get("roverSelect4");
