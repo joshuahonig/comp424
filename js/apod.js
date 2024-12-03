@@ -33,6 +33,7 @@ apodButton.addEventListener("click", () => {
                 noResults.style.display = "block";
                 apodTitle.textContent = "Error!"
                 apodTitle.classList.add("error");
+                apodImage.src = "/img/notFound.png";
                 apodExplanation.textContent = "No image was found for the selected date. Please try searching for another day."
             }
         })
