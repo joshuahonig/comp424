@@ -418,3 +418,7 @@ body.dark-mode footer {
     border-radius: 10px;
     margin-top: 10px;
 }
+
+main {
+    padding-top: 2em;
+}

@@ -67,6 +67,12 @@ window.addEventListener('load', function () {
     document.getElementById("roverSelect").value = localStorage.getItem("rover");
     document.getElementById("camSelect").value = localStorage.getItem("camera");
     document.getElementById("submit").click();
+
+    roverSelect.dispatchEvent(new Event("change")); // Force the rover select's change event to run, to disable the appropriate camera options
+
+    // Remove from local storage, since the user is now on the page
+    localStorage.removeItem("rover");
+    localStorage.removeItem("camera");
   }
 });
 
@@ -138,74 +144,23 @@ searchForm.addEventListener("submit", (e) => {
 
         for (var x = 0; x < response['photos'].length; x++) {
           var link = document.createElement("a");
+          link.setAttribute("href", response['photos'][x]['img_src']);
+          link.setAttribute("data-pswp-width", "1200");
+          link.setAttribute("data-pswp-height", "1200");
           var img = document.createElement("img");
           img.src = response['photos'][x]['img_src'];
+          img.setAttribute("alt", "")
           link.appendChild(img);
           gallery.appendChild(link);
         }
       }
 
-      /* https://stackoverflow.com/a/67816263 */
-      var galleryImages = document.querySelectorAll(".gallery a");
-      var fullPageViewer = document.querySelector("#fullscreenImageViewer");
-      var currentIndex = 0; // Track the currently displayed image
-
-      /* Function to update the full-page viewer */
-      function showImage(index) {
-        currentIndex = index;
-        storeScrollPosition();
-        var imageSrc = galleryImages[currentIndex].children[0].src;
-        fullPageViewer.style.backgroundImage = `url(${imageSrc})`;
-        fullPageViewer.style.display = "block";
-        window.scrollTo(0, 0);
-      }
-
-      let clickTimer;
-
-      /* Add click event to each gallery image */
-      galleryImages.forEach((link, index) => {
-        link.addEventListener('click', function (event) {
-          event.preventDefault(); // Prevent default link behavior
-          clearTimeout(clickTimer);
-          clickTimer = setTimeout(() => {
-            showImage(index);
-          }, 200);
-        });
+      var pswpGallery = new PhotoSwipeLightbox({
+        gallery: '.photoGallery',
+        children: 'a',
+        pswpModule: PhotoSwipe 
       });
-
-      /* Add double-click event to each gallery image */
-      galleryImages.forEach((link) => {
-        link.addEventListener('dblclick', function (event) {
-          event.preventDefault(); // Prevent default link behavior
-          clearTimeout(clickTimer);
-          const imageSrc = link.children[0].src;
-          window.open(imageSrc, '_blank');
-        });
-      });
-
-      /* Add event listener for keyboard navigation */
-      document.addEventListener('keydown', function (event) {
-        if (fullPageViewer.style.display === "block") {
-          if (event.key === "ArrowRight") {
-            // Show next image
-            currentIndex = (currentIndex + 1) % galleryImages.length; // Wrap around
-            showImage(currentIndex);
-          } else if (event.key === "ArrowLeft") {
-            // Show previous image
-            currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length; // Wrap around
-            showImage(currentIndex);
-          } else if (event.key === "Escape") {
-            // Close the viewer
-            fullPageViewer.style.display = "none";
-          }
-        }
-      });
-
-      /* Close the viewer when clicking outside the image */
-      fullPageViewer.addEventListener('click', function () {
-        fullPageViewer.style.display = "none";
-        restoreScrollPosition();
-      });
+      pswpGallery.init();
 
       toggleInputs(true);
     })
