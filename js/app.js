@@ -9,7 +9,7 @@ if (typeof authNotRequired === "undefined") {
     window.location.href = "/";
   }
 
-  // Search document.cookie for the API key.
+  // Search for the API key.
   let apikey = localStorage.getItem("apikey");
   if (apikey === null) {
     warnInvalid("No API key specified.");
