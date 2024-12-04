@@ -14,6 +14,7 @@ fetch("https://api.nasa.gov/planetary/apod?api_key=" + localStorage.getItem("api
     } else if (response.hasOwnProperty("url")) {
       // If API response contains the expected keys...
       // Store the keys locally
+
       localStorage.setItem("apod.url", response['url']);
       localStorage.setItem("apod.title", response['title']);
       localStorage.setItem("apod.explanation", response['explanation']);
@@ -22,6 +23,12 @@ fetch("https://api.nasa.gov/planetary/apod?api_key=" + localStorage.getItem("api
       document.getElementById("textSuccess").style.display = "block";
       document.getElementById("loadingBar").setAttribute("max", "100");
       document.getElementById("loadingBar").setAttribute("value", "100");
+
+      // While we're here, check out the browser's settings and see if it prefers dark mode
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        localStorage.setItem("darkMode", true);
+      }
+
       // Redirect
       window.location.href = "/rover.html";
     } else {
