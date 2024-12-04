@@ -123,8 +123,8 @@ roverSelect.addEventListener("change", function () {
 
 /* Handle getting the images */
 let searchForm = document.getElementById("searchForm");
-searchForm.addEventListener("submit", (e) => {
-  e.preventDefault(); // prevent the form from submitting
+searchForm.addEventListener("submit", (elt) => {
+  elt.preventDefault(); // prevent the form from submitting
   document.getElementById("photoGallery").innerHTML = ""; // remove all existing photos
   document.getElementById("noresults").style.display = "none"; // hide the "no results" warning
   var rover = document.getElementById("searchForm").elements['roverSelect'].value;
@@ -143,14 +143,18 @@ searchForm.addEventListener("submit", (e) => {
       } else {
 
         for (var x = 0; x < response['photos'].length; x++) {
+
           var link = document.createElement("a");
           link.setAttribute("href", response['photos'][x]['img_src']);
           link.setAttribute("id", btoa(response['photos'][x]['img_src']));
+
           var img = document.createElement("img");
           img.src = response['photos'][x]['img_src'];
           img.setAttribute("alt", `Image ${response['photos'][x]['id']}`);
           img.setAttribute("style", "display: none;"); // Temporarily disable displaying the image; this will be undone when the image is done loading
+          
           link.appendChild(img);
+
           img.onload = function() {
             console.log(this.parentElement.id);
             document.getElementById(this.parentElement.id).setAttribute("data-pswp-width", this.width);
@@ -181,17 +185,3 @@ searchForm.addEventListener("submit", (e) => {
       }
     });
 });
-
-/* Store scroll position in localStorage */
-function storeScrollPosition() {
-  localStorage.setItem("scrollPosition", window.scrollY);
-}
-
-/* Restore scroll position from localStorage */
-function restoreScrollPosition() {
-  const scrollPosition = localStorage.getItem("scrollPosition");
-  if (scrollPosition) {
-    window.scrollTo(0, parseInt(scrollPosition, 10));
-    localStorage.removeItem("scrollPosition");
-  }
-}

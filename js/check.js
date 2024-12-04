@@ -10,7 +10,7 @@ fetch("https://api.nasa.gov/planetary/apod?api_key=" + localStorage.getItem("api
   .then(function (response) {
     if (response.hasOwnProperty("error")) {
       // If API response has "error" key.
-      warnInvalid('API response: \n"' + response['error']['message'] + '"');
+      warnInvalid(`API response:\n${response['error']['message']}`);
     } else if (response.hasOwnProperty("url")) {
       // If API response contains the expected keys...
       // Store the keys locally

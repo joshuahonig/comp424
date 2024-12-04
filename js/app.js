@@ -1,7 +1,8 @@
 /* Common code for each page goes here. */
-
+const eltsReqAuth = ["roverLink", "searchLink", "aboutLink", "logoutLink", "apodLink", "darkmodeLink"];
+const endpointFooter = "/parts/footer.html";
+const endpointNavbar = "/parts/nav.html";
 /* API code. Only loaded if authentication isn't required. */
-let apikey;
 if (typeof authNotRequired === "undefined") {
   function warnInvalid(reason) {
     alert("Bad API key! " + reason);
@@ -19,7 +20,7 @@ if (typeof authNotRequired === "undefined") {
 
 /* Load the navbar. */
 var navbarRequest = new XMLHttpRequest();
-navbarRequest.open("GET", "/parts/nav.html", true);
+navbarRequest.open("GET", endpointNavbar, true);
 navbarRequest.onload = function () {
   if (navbarRequest.status >= 200 && navbarRequest.status < 400) {
 
@@ -38,17 +39,16 @@ navbarRequest.onload = function () {
     }
     /* If we're not logged in, don't show buttons that require auth. */
     if (localStorage.getItem("apikey") === null) {
-      document.getElementById("roverLink").style.display = "none";
-      document.getElementById("searchLink").style.display = "none";
-      document.getElementById("aboutLink").style.display = "none";
-      document.getElementById("logoutLink").style.display = "none";
-      document.getElementById("apodLink").style.display = "none";
-      document.getElementById("darkmodeLink").style.display = "none";
+      for (elt of eltsReqAuth){
+        console.log(document.getElementById(elt));
+        document.getElementById(elt).remove();
+      }
     }
 
     DarkModeToggleSetUp();
 
     /* Set the page title. */
+    // Each page has a <meta> tag describing "page-title", which is used here to dynamically set the page title.
     if (document.querySelector('meta[name="page-title"]') !== null) {
       document.getElementById("pageTitle").innerHTML = document.querySelector('meta[name="page-title"]').content;
     }
@@ -58,7 +58,7 @@ navbarRequest.send();
 
 /* Load the footer. */
 var footerRequest = new XMLHttpRequest();
-footerRequest.open("GET", "/parts/footer.html", true);
+footerRequest.open("GET", endpointFooter, true);
 footerRequest.onload = function () {
   if (footerRequest.status >= 200 && footerRequest.status < 400) {
     /* Set the footer element content. */
@@ -70,6 +70,8 @@ footerRequest.send();
 
 function DarkModeToggleSetUp() {
   const darkModeToggle = document.getElementById('darkmodeLink');
+  const labelLightmode = '<i class="fa-solid fa-sun"></i> Light Mode';
+  const labelDarkmode = '<i class="fa-solid fa-moon"></i> Dark Mode';
 
   if (darkModeToggle) {
     darkModeToggle.addEventListener('click', () => {
@@ -79,7 +81,7 @@ function DarkModeToggleSetUp() {
       const isDarkMode = document.body.classList.contains('dark-mode');
 
       // Update button text
-      darkModeToggle.innerHTML = isDarkMode ? '<i class="fa-solid fa-sun"></i> Light Mode' : '<i class="fa-solid fa-moon"></i> Dark Mode';
+      darkModeToggle.innerHTML = isDarkMode ? labelLightmode : labelDarkmode;
 
       // Save the user's preference in localStorage
       localStorage.setItem('darkMode', isDarkMode);
@@ -89,9 +91,9 @@ function DarkModeToggleSetUp() {
     const isDarkMode = localStorage.getItem('darkMode') === 'true';
     if (isDarkMode) {
       document.body.classList.add('dark-mode');
-      darkModeToggle.innerHTML = '<i class="fa-solid fa-sun"></i> Light Mode';
+      darkModeToggle.innerHTML = labelLightmode;
     } else {
-      darkModeToggle.innerHTML = '<i class="fa-solid fa-moon"></i> Dark Mode';
+      darkModeToggle.innerHTML = labelDarkmode;
     }
   } else {
     console.warn("Dark mode toggle button not found on this page.");
