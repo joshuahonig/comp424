@@ -49,7 +49,7 @@ body {
 }
 
 .navbar-nav a {
-    color: white;
+    color: white !important;
     text-decoration: none;
     padding: 5px 10px;
     transition: background 0.3s ease;
@@ -410,6 +410,14 @@ body.dark-mode form button {
 
 body.dark-mode form button:hover {
     background-color: #4a90e2;
+}
+
+body.dark-mode a {
+    color: #bcc5ff;
+}
+
+body.dark-mode a:visited {
+    color: #dca1ff;
 }
 
 body.dark-mode footer {
