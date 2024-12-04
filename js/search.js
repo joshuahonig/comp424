@@ -149,6 +149,7 @@ searchForm.addEventListener("submit", (e) => {
           var img = document.createElement("img");
           img.src = response['photos'][x]['img_src'];
           img.setAttribute("alt", `Image ${response['photos'][x]['id']}`);
+          img.setAttribute("style", "display: none;"); // Temporarily disable displaying the image; this will be undone when the image is done loading
           link.appendChild(img);
           img.onload = function() {
             console.log(this.parentElement.id);
