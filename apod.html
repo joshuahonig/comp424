@@ -7,15 +7,26 @@
     <meta name="page-title" content="APOD">
     <title>APOD</title>
     <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.4/photoswipe.min.css"
+    integrity="sha512-LFWtdAXHQuwUGH9cImO9blA3a3GfQNkpF2uRlhaOpSbDevNyK1rmAjs13mtpjvWyi+flP7zYWboqY+8Mkd42xA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.4/umd/photoswipe.umd.min.js"
+        integrity="sha512-BXwwGU7zCXVgpT2jpXnTbioT9q1Byf7NEXVxovTZPlNvelL2I/4LjOaoiB2a19L+g5za8RbkoJFH4fMPQcjFFw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.4/umd/photoswipe-lightbox.umd.min.js"
+        integrity="sha512-D16CBrIrVF48W0Ou0ca3D65JFo/HaEAjTugBXeWS/JH+1KNu54ZOtHPccxJ7PQ44rTItUT6DSI6xNL+U34SuuQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body>
     <header class="navbar" id="navbar"></header>
     <main id="content" class="content apod">
         <section id="imageDisplay">
-            <div id="apodContainer" style="display: none;">
+            <div id="apodContainer" class="pswp-gallery" style="display: none;">
                 <h2 id="apodTitle"></h2>
-                <img id="apodImage" alt="Astronomy Picture of the Day">
+                <a id="apodImageLink" href="#" data-pswp-width="1920" data-pswp-height="1080">
+                    <img id="apodImage" alt="Astronomy Picture of the Day">
+                </a>
             </div>
             <div id="noresults" style="display: none;">
                 <img id="apodImage" src="/img/notFound.png" alt="Not Found">

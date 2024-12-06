@@ -5,6 +5,7 @@ const apodTitle = document.getElementById("apodTitle");
 const apodImage = document.getElementById("apodImage");
 const apodExplanation = document.getElementById("apodExplanation");
 const noResults = document.getElementById("noresults");
+const apodImageLink = document.getElementById("apodImageLink");
 
 apodButton.addEventListener("click", () => {
     const date = document.getElementById("searchDate").value;
@@ -24,6 +25,7 @@ apodButton.addEventListener("click", () => {
             if (data.media_type === "image") {
                 apodTitle.textContent = `Astronomy Picture of the Day: ${data.title}`;
                 apodImage.src = data.url;
+                apodImageLink.href = data.url;
                 apodExplanation.textContent = data.explanation;
 
                 apodContainer.style.display = "block";
@@ -47,14 +49,29 @@ apodButton.addEventListener("click", () => {
 window.addEventListener('load', function () {
     if (localStorage.getItem("apod.url") && localStorage.getItem("apod.title") && localStorage.getItem("apod.explanation")) {
         apodTitle.textContent = `Astronomy Picture of the Day: ${localStorage.getItem("apod.title")}`
-        apodImage.src = localStorage.getItem("apod.url")
-        apodExplanation.textContent = localStorage.getItem("apod.explanation")
+        apodImage.src = localStorage.getItem("apod.url");
+        apodImageLink.href = localStorage.getItem("apod.url");
+        apodExplanation.textContent = localStorage.getItem("apod.explanation");
 
         apodContainer.style.display = "block";
 
         const today = new Date();
         this.document.getElementById("searchDate").value = today.getFullYear().toString() + '-' + (today.getMonth() + 1).toString().padStart(2, 0) + '-' + today.getDate().toString().padStart(2, 0);
 
+        var pswpGallery = new PhotoSwipeLightbox({
+            gallery: '#apodContainer',
+            children: 'a',
+            initialZoomLevel: 1.25,
+            secondaryZoomLevel: 3.5,
+            pswpModule: PhotoSwipe 
+        });
+        pswpGallery.init();
+
+        apodImage.onload = function(){
+            document.getElementById("apodImageLink").setAttribute("data-pswp-width", this.width);
+            document.getElementById("apodImageLink").setAttribute("data-pswp-height", this.height);
+            
+        }
     }
 });
 
