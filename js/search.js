@@ -94,6 +94,12 @@ roverSelect.addEventListener("change", function () {
     }
   }
 
+  /* Check that the selected camera is still valid for this rover. */
+  if (!availableCams[selectedRover].includes(document.getElementById("camSelect").value)) {
+    /* If not, change it to be the first valid camera for this rover. */
+    document.getElementById("camSelect").value = availableCams[selectedRover][0];
+  }
+
   /* Get the oldest and newest photo date */
   /* This function is supposed to use the /manifests/ROVERNAME endpoint, but this endpoint
   recently started to return HTTP 500 Internal Server Error. Using the /rovers endpoint 
