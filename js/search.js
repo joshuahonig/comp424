@@ -97,7 +97,7 @@ roverSelect.addEventListener("change", function () {
   /* Check that the selected camera is still valid for this rover. */
   if (!availableCams[selectedRover].includes(document.getElementById("camSelect").value)) {
     /* If not, change it to be the first valid camera for this rover. */
-    document.getElementById("camSelect").value = availableCams[selectedRover][0];
+    //document.getElementById("camSelect").value = availableCams[selectedRover][0];
   }
 
   /* Get the oldest and newest photo date */
@@ -137,6 +137,11 @@ searchForm.addEventListener("submit", (elt) => {
   var cam = document.getElementById("searchForm").elements['camSelect'].value;
   var date = document.getElementById("searchForm").elements['searchDate'].value;
   toggleInputs(false);
+  if (!availableCams[rover].includes(cam)) {
+    alert("That camera is not available for that rover. Please select a different camera or rover.");
+    toggleInputs(true);
+    return;
+  }
   fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?api_key=${localStorage.getItem("apikey")}&earth_date=${date}&camera=${cam}`)
     .then((function (response) {
       return response.json();
