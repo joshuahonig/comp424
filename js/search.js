@@ -167,7 +167,6 @@ searchForm.addEventListener("submit", (elt) => {
           link.appendChild(img);
 
           img.onload = function() {
-            console.log(this.parentElement.id);
             document.getElementById(this.parentElement.id).setAttribute("data-pswp-width", this.width);
             document.getElementById(this.parentElement.id).setAttribute("data-pswp-height", this.height);
             document.getElementById(this.parentElement.id).children[0].setAttribute("style", `width: ${this.width/4}px; height: ${this.height/4}px`);

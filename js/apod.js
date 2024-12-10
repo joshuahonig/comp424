@@ -40,7 +40,7 @@ apodButton.addEventListener("click", () => {
             }
         })
         .catch((err) => {
-            console.error("Error fetching APOD data:", err);
+            console.warn("Error fetching APOD data:", err);
             noResults.style.display = "block";
         });
 });

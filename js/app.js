@@ -40,7 +40,6 @@ navbarRequest.onload = function () {
     /* If we're not logged in, don't show buttons that require auth. */
     if (localStorage.getItem("apikey") === null) {
       for (elt of eltsReqAuth){
-        console.log(document.getElementById(elt));
         document.getElementById(elt).remove();
       }
     }
